@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Demo Demo Dashboard U13 · Liga Olmeca</title>
+<title>Dashboard público U13 · Liga Olmeca</title>
 <style>
 :root{--orange:#F28C28;--orange-dark:#D96C0B;--black:#171717;--ink:#171717;--muted:#666B75;--bg:#F7F8FC;--line:#E5E7EB;--card:#fff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,Segoe UI,Arial,sans-serif}
@@ -24,7 +24,7 @@ select{max-width:100%}.hidden{display:none!important}.foot{font-size:11px;color:
 </style></head><body>
 <header><div class="brand">LIGA OLMECA · SÓFTBOL INFANTIL MAYOR / U13</div><div class="headline">Dashboard de la categoría U13</div><div class="sub">Antílopes · Gacelas · Impalas · Llamas | Cortes oficiales: 10, 17 y 24 de octubre y 7 de noviembre de 2026</div></header>
 <main>
-<div class="tabs"><button class="active" data-view="general">Resumen de categoría</button></div>
+<div class="tabs"><button class="active" type="button">Resumen de categoría</button></div>
 <div id="general">
 <div class="section-head"><div><h2>Panorama de la categoría</h2><p class="desc">Datos transcritos de los archivos oficiales de Liga Olmeca. El corte más reciente disponible es el 07/11/2026.</p></div><span class="pill">CORTE 7 NOV 2026</span></div>
 <div class="grid kpis" id="kpis"></div>
@@ -41,7 +41,7 @@ select{max-width:100%}.hidden{display:none!important}.foot{font-size:11px;color:
 <div class="notice">Importante: un cambio entre cortes refleja el movimiento del acumulado publicado entre ambos archivos. Si un valor no está disponible en una de las fuentes, se muestra como “—”.</div>
 <div class="card"><div class="table-wrap"><table id="weeklyTable"></table></div></div>
 </div>
-<div class="foot">Fuente: archivos oficiales de los cortes del 10, 17 y 24 de octubre y 7 de noviembre de 2026; último archivo: “softbol-infantil-mayor-07NOV26.xls”, hoja BASE. Este dashboard es un prototipo local: no está publicado en internet, no tiene control de acceso real y no actualiza datos automáticamente. La información individual y las herramientas de análisis detallado están reservadas para la versión privada.</div>
+<div class="foot">Fuente: archivos oficiales de los cortes del 10, 17 y 24 de octubre y 7 de noviembre de 2026; último archivo: “softbol-infantil-mayor-07NOV26.xls”, hoja BASE. Este módulo muestra exclusivamente indicadores colectivos de acceso público. La información individual está reservada para el módulo privado con autenticación.</div>
 </main>
 <script>
 const DATA={"2026-10-24":{"standings":[{"team":"ANTILOPES","JJ":5,"JG":3,"JP":1,"JE":1,"pct":0.75,"JV":0},{"team":"IMPALAS","JJ":5,"JG":2,"JP":2,"JE":1,"pct":0.5,"JV":1},{"team":"LLAMAS","JJ":5,"JG":2,"JP":3,"JE":null,"pct":0.4,"JV":1.5},{"team":"GACELAS","JJ":5,"JG":2,"JP":3,"JE":null,"pct":0.4,"JV":1.5}],"teams":{"ANTILOPES":{"batting_total":{"JJ":null,"AB":117,"V":84,"C":28,"HT":17,"H2":2,"H3":0,"HR":0,"ST":0,"SF":0,"R":8,"CP":18,"SO":37,"BB":32,"GP":1,"%EN BASE":0.42735,"%BATEO":0.202381,"SLUG":0.22619,"Fildeo O":69,"Fildeo A":22,"Fildeo E":2,"%FILDEO":0.978495},"pitch_total":{"JL":null,"JG":3,"JP":1,"IP":24,"BL":120,"H":20,"HR":0,"C":25,"CL":20,"SO":38,"BB":27,"W":3,"GP":1,"BK":0,"PCL":3.333333,"PGP":0.75,"WHIP":1.958333}},"GACELAS":{"batting_total":{"JJ":null,"AB":132,"V":89,"C":35,"HT":16,"H2":7,"H3":0,"HR":0,"ST":0,"SF":0,"R":18,"CP":18,"SO":44,"BB":38,"GP":5,"%EN BASE":0.44697,"%BATEO":0.179775,"SLUG":0.258427,"Fildeo O":66,"Fildeo A":23,"Fildeo E":11,"%FILDEO":0.89},"pitch_total":{"JL":null,"JG":2,"JP":3,"IP":21.67,"BL":122,"H":26,"HR":0,"C":40,"CL":22,"SO":35,"BB":19,"W":14,"GP":3,"BK":0,"PCL":4.060914,"PGP":0.4,"WHIP":2.076604}},"IMPALAS":{"batting_total":{"JJ":null,"AB":129,"V":94,"C":38,"HT":22,"H2":10,"H3":1,"HR":0,"ST":0,"SF":0,"R":18,"CP":18,"SO":40,"BB":30,"GP":4,"%EN BASE":0.4375,"%BATEO":0.234043,"SLUG":0.361702,"Fildeo O":66,"Fildeo A":17,"Fildeo E":8,"%FILDEO":0.912088},"pitch_total":{"JL":null,"JG":2,"JP":2,"IP":22.34,"BL":122,"H":18,"HR":0,"C":30,"CL":21,"SO":39,"BB":28,"W":4,"GP":2,"BK":0,"PCL":3.760072,"PGP":0.5,"WHIP":2.059087}},"LLAMAS":{"batting_total":{"JJ":null,"AB":116,"V":93,"C":29,"HT":20,"H2":1,"H3":0,"HR":0,"ST":0,"SF":0,"R":24,"CP":14,"SO":36,"BB":21,"GP":2,"%EN BASE":0.37069,"%BATEO":0.215054,"SLUG":0.225806,"Fildeo O":64,"Fildeo A":13,"Fildeo E":13,"%FILDEO":0.855556},"pitch_total":{"JL":null,"JG":2,"JP":3,"IP":20.67,"BL":141,"H":11,"HR":0,"C":39,"CL":22,"SO":48,"BB":51,"W":7,"GP":6,"BK":0,"PCL":4.257378,"PGP":0.4,"WHIP":2.999516}}}},"2026-11-07":{"standings":[{"team":"ANTILOPES","JJ":7,"JG":4,"JP":2,"JE":1,"pct":0.666666666666667,"JV":0},{"team":"IMPALAS","JJ":7,"JG":3,"JP":2,"JE":2,"pct":0.6,"JV":0.5},{"team":"GACELAS","JJ":7,"JG":3,"JP":4,"JE":null,"pct":0.428571428571429,"JV":1.5},{"team":"LLAMAS","JJ":7,"JG":2,"JP":4,"JE":1,"pct":0.333333333333333,"JV":2}],"teams":{"ANTILOPES":{"batting_total":{"JUGADOR":"TOTALES","AB":168,"V":123,"C":42,"HT":29,"H2":5,"H3":0,"HR":1,"ST":0,"SF":0,"R":19,"CP":25,"SO":47,"BB":42,"GP":3,"%EN BASE":0.44047619047619,"%BATEO":0.235772357723577,"SLUG":0.300813008130081,"JJ":null,"Fildeo O":100,"Fildeo A":31,"Fildeo E":2,"Fildeo %FILDEO":0.984962406015038},"pitch_total":{"JUGADOR":"TOTALES","JG":4,"JP":2,"IP":34,"BL":170,"H":26,"HR":0,"C":33,"CL":25,"SO":55,"BB":41,"W":5,"GP":3,"BK":0,"PCL":2.94117647058824,"PGP":0.666666666666667,"WHIP":1.97058823529412,"JL":null}},"GACELAS":{"batting_total":{"JUGADOR":"TOTALES","AB":179,"V":121,"C":42,"HT":22,"H2":8,"H3":0,"HR":0,"ST":0,"SF":0,"R":26,"CP":22,"SO":59,"BB":51,"GP":7,"%EN BASE":0.446927374301676,"%BATEO":0.181818181818182,"SLUG":0.247933884297521,"JJ":null,"Fildeo O":95,"Fildeo A":31,"Fildeo E":13,"Fildeo %FILDEO":0.906474820143885},"pitch_total":{"JUGADOR":"TOTALES","JG":3,"JP":4,"IP":30.9899997413158,"BL":181,"H":40,"HR":1,"C":55,"CL":31,"SO":50,"BB":30,"W":17,"GP":5,"BK":0,"PCL":4.00129077234819,"PGP":0.428571428571429,"WHIP":2.2587931779385,"JL":null}},"IMPALAS":{"batting_total":{"JUGADOR":"TOTALES","AB":182,"V":128,"C":48,"HT":27,"H2":11,"H3":2,"HR":0,"ST":0,"SF":0,"R":23,"CP":23,"SO":56,"BB":48,"GP":5,"%EN BASE":0.441988950276243,"%BATEO":0.2109375,"SLUG":0.328125,"JJ":null,"Fildeo O":99,"Fildeo A":27,"Fildeo E":9,"Fildeo %FILDEO":0.933333333333333},"pitch_total":{"JUGADOR":"TOTALES","JG":3,"JP":2,"IP":33.3400000929832,"BL":173,"H":23,"HR":0,"C":36,"CL":27,"SO":53,"BB":39,"W":6,"GP":2,"BK":0,"PCL":3.23935212053973,"PGP":0.6,"WHIP":1.85962806919873,"JL":null}},"LLAMAS":{"batting_total":{"JUGADOR":"TOTALES","AB":163,"V":129,"C":35,"HT":23,"H2":1,"H3":0,"HR":0,"ST":0,"SF":0,"R":24,"CP":17,"SO":49,"BB":32,"GP":2,"%EN BASE":0.349693251533742,"%BATEO":0.178294573643411,"SLUG":0.186046511627907,"JJ":null,"Fildeo O":91,"Fildeo A":20,"Fildeo E":17,"Fildeo %FILDEO":0.8671875},"pitch_total":{"JUGADOR":"TOTALES","JG":2,"JP":4,"IP":30.660000026226,"BL":194,"H":16,"HR":0,"C":49,"CL":28,"SO":64,"BB":69,"W":7,"GP":7,"BK":0,"PCL":3.65296803340499,"PGP":0.333333333333333,"WHIP":2.77234181106629,"JL":null}}}}};
@@ -96,12 +96,8 @@ function renderWeekly(){
    return [NAMES[t],label,fmt(old),fmt(now),delta];
  })));
 }
-document.querySelectorAll(".tabs button").forEach(btn=>btn.addEventListener("click",()=>{
- document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b===btn));
- ["general","team","weekly"].forEach(id=>document.getElementById(id).classList.toggle("hidden",id!==btn.dataset.view));
-}));
-const sel=document.getElementById("teamSelect");
-sel.innerHTML=ORDER.map(t=>`<option value="${t}">${NAMES[t]}</option>`).join("");
-sel.addEventListener("change",renderTeam);
+// El dashboard público solo renderiza indicadores colectivos.
+// Se eliminan los controles del módulo privado para evitar referencias a elementos inexistentes.
 renderGeneral();
+renderWeekly();
 </script></body></html>

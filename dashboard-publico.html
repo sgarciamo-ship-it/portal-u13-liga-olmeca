@@ -1,103 +1,81 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dashboard público U13 · Liga Olmeca</title>
+<meta name="description" content="Tablero colectivo de Liga Olmeca U13, temporada 2026–2027."><title>Tablero U13 | Liga Olmeca</title>
 <style>
-:root{--orange:#F28C28;--orange-dark:#D96C0B;--black:#171717;--ink:#171717;--muted:#666B75;--bg:#F7F8FC;--line:#E5E7EB;--card:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,Segoe UI,Arial,sans-serif}
-header{padding:24px clamp(16px,4vw,44px);color:#fff;background:linear-gradient(115deg,#171717,#292929 58%,#F28C28);border-bottom:5px solid var(--orange)}
-.brand{font-size:11px;font-weight:900;letter-spacing:2px}.headline{font-size:clamp(25px,4vw,38px);font-weight:900;margin:7px 0}.sub{color:#fff;font-size:13px;opacity:.94}
-main{max-width:1320px;margin:auto;padding:20px clamp(12px,3vw,30px) 40px}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.tabs button,button,select{font:inherit;font-weight:750;border-radius:10px;padding:10px 14px;border:1px solid #D5DCE8;background:#fff;cursor:pointer;color:var(--ink)}
-.tabs button.active,button.primary{background:var(--orange);border-color:var(--orange);color:#171717}
-.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(4,minmax(0,1fr))}.two{grid-template-columns:1fr 1fr}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px;min-width:0;box-shadow:0 3px 12px #1a263608}
-.klabel{font-size:12px;color:var(--muted);font-weight:700}.kval{font-size:29px;font-weight:900;margin:7px 0}.kfoot{font-size:11px;color:var(--muted)}
-h2{margin:0 0 5px;font-size:24px}h3{margin:0 0 6px;font-size:16px}.desc{font-size:12px;color:var(--muted);margin:0 0 14px;line-height:1.45}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:8px 0 16px}
-.notice{background:#FFF5E9;border:1px solid #F5D2AA;border-left:4px solid var(--orange);padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin:12px 0 16px}
-table{border-collapse:collapse;width:100%;font-size:12px}th{text-align:left;background:#F7F8FA;color:#697588;white-space:nowrap}td,th{padding:10px 9px;border-bottom:1px solid var(--line)}td.num{text-align:right;font-variant-numeric:tabular-nums}
-.table-wrap{overflow:auto}tr.highlight td{background:#FFF0DC;font-weight:800}.rank{font-weight:900;color:var(--orange-dark)}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}.pill{border-radius:999px;background:#FFF0DC;color:#8A4500;padding:6px 10px;font-size:11px;font-weight:800}
-.bar{height:9px;background:#EEF1F7;border-radius:99px;overflow:hidden}.bar>span{display:block;height:100%;background:var(--orange);border-radius:99px}.barline{display:grid;grid-template-columns:minmax(95px,1fr) 2fr 36px;gap:9px;align-items:center;margin:10px 0;font-size:12px}
-select{max-width:100%}.hidden{display:none!important}.foot{font-size:11px;color:var(--muted);line-height:1.5;margin-top:18px}
-@media(max-width:800px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}}
-@media(max-width:460px){.kval{font-size:24px}.card{padding:13px}.barline{grid-template-columns:80px 1fr 30px}}
+:root{--orange:#F28C28;--black:#171717;--ink:#202124;--muted:#667085;--bg:#f4f5f7;--line:#e5e7eb;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px Inter,Segoe UI,Arial,sans-serif}
+header{background:linear-gradient(115deg,#171717 0%,#292929 68%,#a9500b 100%);color:#fff;border-bottom:5px solid var(--orange)}
+.wrap{max-width:1200px;margin:auto;padding:22px}
+.brand{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--orange)}
+h1{font-size:clamp(26px,4vw,40px);margin:10px 0 6px}header p{margin:0;color:#f3f3f3}
+main{max-width:1200px;margin:auto;padding:22px}
+.toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+select,button{font:inherit;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 13px;font-weight:700}
+button{cursor:pointer}button.active{background:var(--orange);border-color:var(--orange)}
+.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 3px 12px #17171708}
+.klabel{font-size:12px;color:var(--muted);font-weight:700}.kvalue{font-size:27px;font-weight:900;margin:7px 0 3px}.hint{font-size:12px;color:var(--muted)}
+.section{margin-top:22px}.section h2{font-size:19px;margin:0 0 12px}
+.twocol{grid-template-columns:1.1fr .9fr}.teamcards{grid-template-columns:repeat(4,minmax(0,1fr))}
+.team{border-top:4px solid var(--orange)}.team h3{margin:0 0 12px}.team .big{font-size:25px;font-weight:900}
+table{border-collapse:collapse;width:100%;background:white;border-radius:12px;overflow:hidden}
+th,td{padding:11px 10px;text-align:right;border-bottom:1px solid var(--line);font-size:13px;white-space:nowrap}
+th{background:var(--black);color:#fff;font-weight:800}th:first-child,td:first-child{text-align:left}
+tr:last-child td{border-bottom:0}.scroll{overflow:auto;border-radius:12px;border:1px solid var(--line)}
+.barrow{display:grid;grid-template-columns:92px 1fr 48px;gap:10px;align-items:center;margin:12px 0;font-size:13px}
+.track{height:12px;background:#eceef1;border-radius:20px;overflow:hidden}.fill{height:100%;background:var(--orange);border-radius:20px}
+.note{padding:14px 16px;background:#fff8ef;border:1px solid #f4d4b2;border-radius:12px;font-size:13px;line-height:1.5}
+footer{color:var(--muted);font-size:12px;padding:20px 0 34px}
+@media(max-width:850px){.kpis,.teamcards{grid-template-columns:repeat(2,minmax(0,1fr))}.twocol{grid-template-columns:1fr}}
+@media(max-width:480px){.kpis,.teamcards{grid-template-columns:1fr 1fr}.wrap,main{padding:16px}.kvalue{font-size:23px}}
 </style></head><body>
-<header><div class="brand">LIGA OLMECA · SÓFTBOL INFANTIL MAYOR / U13</div><div class="headline">Dashboard de la categoría U13</div><div class="sub">Antílopes · Gacelas · Impalas · Llamas | Cortes oficiales: 10, 17 y 24 de octubre y 7 de noviembre de 2026</div></header>
+<header><div class="wrap"><div class="brand">LIGA OLMECA · SÓFTBOL FEMENIL</div><h1>Tablero colectivo U13</h1><p>Temporada 2026–2027 · Información acumulada al 7 de noviembre de 2026</p></div></header>
 <main>
-<div class="tabs"><button class="active" type="button">Resumen de categoría</button></div>
-<div id="general">
-<div class="section-head"><div><h2>Panorama de la categoría</h2><p class="desc">Datos transcritos de los archivos oficiales de Liga Olmeca. El corte más reciente disponible es el 07/11/2026.</p></div><span class="pill">CORTE 7 NOV 2026</span></div>
-<div class="grid kpis" id="kpis"></div>
-<div class="grid two" style="margin-top:14px">
-<div class="card"><h3>Tabla de posiciones oficial</h3><p class="desc">Se conserva el orden y los valores publicados en el bloque “Primera vuelta”.</p><div class="table-wrap"><table id="standings"></table></div></div>
-<div class="card"><h3>Comparativo ofensivo</h3><p class="desc">Totales de equipo en el corte del 7 de noviembre.</p><div id="offense"></div></div>
-</div>
-<div class="grid two" style="margin-top:14px">
-<div class="card"><h3>Comparativo de pitcheo</h3><p class="desc">Entradas y conteos tal como aparecen en la fuente. No se reinterpretan los formatos de IP.</p><div id="pitching"></div></div>
-<div class="card"><h3>Notas de lectura</h3><div class="notice">Las estadísticas individuales son acumuladas, no estadísticas de un partido aislado.</div><div class="notice">Las columnas porcentuales y las entradas de pitcheo se conservan como aparecen en el archivo oficial; conviene validar las fórmulas antes de usarlas para decisiones técnicas.</div><div class="notice">Los cortes del 24 de octubre y 7 de noviembre se comparan entre sí; no se suman, porque son acumulados.</div></div>
-</div>
-</div>
-</div>
-<div class="notice">Importante: un cambio entre cortes refleja el movimiento del acumulado publicado entre ambos archivos. Si un valor no está disponible en una de las fuentes, se muestra como “—”.</div>
-<div class="card"><div class="table-wrap"><table id="weeklyTable"></table></div></div>
-</div>
-<div class="foot">Fuente: archivos oficiales de los cortes del 10, 17 y 24 de octubre y 7 de noviembre de 2026; último archivo: “softbol-infantil-mayor-07NOV26.xls”, hoja BASE. Este módulo muestra exclusivamente indicadores colectivos de acceso público. La información individual está reservada para el módulo privado con autenticación.</div>
+<div class="toolbar"><div><strong>Vista de equipos</strong> <span class="hint">· Solo indicadores colectivos</span></div>
+<div><label for="team">Equipo: </label><select id="team"><option value="TODOS">Todos los equipos</option><option>Antílopes</option><option>Gacelas</option><option>Impalas</option><option>Llamas</option></select></div></div>
+<section class="grid kpis" id="kpis"></section>
+<section class="section">
+<h2>Posiciones oficiales · Primera vuelta · 07NOV26</h2>
+<div class="scroll"><table id="standings"></table></div>
+<p class="hint">Orden y resultados transcritos de la tabla oficial “Primera vuelta”. JG = juegos ganados; JP = perdidos; JE = empatados; J.V. = juegos detrás del primer lugar.</p>
+</section>
+<section class="section">
+<h2>Indicadores acumulados por equipo · corte 07NOV26</h2><div class="scroll"><table id="comparison"></table></div>
+</section>
+<section class="section grid twocol">
+<div class="card"><h2>Evolución de turnos al bate (AB)</h2><div id="trend"></div><p class="hint">Valores acumulados por corte; no representan jornadas independientes.</p></div>
+<div class="card"><h2>Producción colectiva · 07NOV26</h2><div id="production"></div><p class="hint">Comparación de carreras anotadas entre equipos.</p></div>
+</section>
+<section class="section">
+<h2>Incrementos entre cortes</h2><div class="scroll"><table id="deltas"></table></div>
+</section>
+<section class="section note"><strong>Cómo leer este tablero.</strong> Los cortes del 10, 17 y 24 de octubre y 7 de noviembre son acumulados a cada fecha. No deben sumarse entre sí. Los incrementos de conteo se calculan restando acumulados consecutivos. AVG y PCL son tasas y no se restan. Este tablero contiene únicamente información colectiva; no incluye estadísticas ni nombres de jugadoras.</section>
+<footer>Fuente: archivos de resultados de Liga Olmeca Infantil Mayor correspondientes a los cuatro cortes indicados. Alcance: Antílopes, Gacelas, Impalas y Llamas. Se excluyen Intermedia y Leonas.</footer>
 </main>
 <script>
-const DATA={"2026-10-24":{"standings":[{"team":"ANTILOPES","JJ":5,"JG":3,"JP":1,"JE":1,"pct":0.75,"JV":0},{"team":"IMPALAS","JJ":5,"JG":2,"JP":2,"JE":1,"pct":0.5,"JV":1},{"team":"LLAMAS","JJ":5,"JG":2,"JP":3,"JE":null,"pct":0.4,"JV":1.5},{"team":"GACELAS","JJ":5,"JG":2,"JP":3,"JE":null,"pct":0.4,"JV":1.5}],"teams":{"ANTILOPES":{"batting_total":{"JJ":null,"AB":117,"V":84,"C":28,"HT":17,"H2":2,"H3":0,"HR":0,"ST":0,"SF":0,"R":8,"CP":18,"SO":37,"BB":32,"GP":1,"%EN BASE":0.42735,"%BATEO":0.202381,"SLUG":0.22619,"Fildeo O":69,"Fildeo A":22,"Fildeo E":2,"%FILDEO":0.978495},"pitch_total":{"JL":null,"JG":3,"JP":1,"IP":24,"BL":120,"H":20,"HR":0,"C":25,"CL":20,"SO":38,"BB":27,"W":3,"GP":1,"BK":0,"PCL":3.333333,"PGP":0.75,"WHIP":1.958333}},"GACELAS":{"batting_total":{"JJ":null,"AB":132,"V":89,"C":35,"HT":16,"H2":7,"H3":0,"HR":0,"ST":0,"SF":0,"R":18,"CP":18,"SO":44,"BB":38,"GP":5,"%EN BASE":0.44697,"%BATEO":0.179775,"SLUG":0.258427,"Fildeo O":66,"Fildeo A":23,"Fildeo E":11,"%FILDEO":0.89},"pitch_total":{"JL":null,"JG":2,"JP":3,"IP":21.67,"BL":122,"H":26,"HR":0,"C":40,"CL":22,"SO":35,"BB":19,"W":14,"GP":3,"BK":0,"PCL":4.060914,"PGP":0.4,"WHIP":2.076604}},"IMPALAS":{"batting_total":{"JJ":null,"AB":129,"V":94,"C":38,"HT":22,"H2":10,"H3":1,"HR":0,"ST":0,"SF":0,"R":18,"CP":18,"SO":40,"BB":30,"GP":4,"%EN BASE":0.4375,"%BATEO":0.234043,"SLUG":0.361702,"Fildeo O":66,"Fildeo A":17,"Fildeo E":8,"%FILDEO":0.912088},"pitch_total":{"JL":null,"JG":2,"JP":2,"IP":22.34,"BL":122,"H":18,"HR":0,"C":30,"CL":21,"SO":39,"BB":28,"W":4,"GP":2,"BK":0,"PCL":3.760072,"PGP":0.5,"WHIP":2.059087}},"LLAMAS":{"batting_total":{"JJ":null,"AB":116,"V":93,"C":29,"HT":20,"H2":1,"H3":0,"HR":0,"ST":0,"SF":0,"R":24,"CP":14,"SO":36,"BB":21,"GP":2,"%EN BASE":0.37069,"%BATEO":0.215054,"SLUG":0.225806,"Fildeo O":64,"Fildeo A":13,"Fildeo E":13,"%FILDEO":0.855556},"pitch_total":{"JL":null,"JG":2,"JP":3,"IP":20.67,"BL":141,"H":11,"HR":0,"C":39,"CL":22,"SO":48,"BB":51,"W":7,"GP":6,"BK":0,"PCL":4.257378,"PGP":0.4,"WHIP":2.999516}}}},"2026-11-07":{"standings":[{"team":"ANTILOPES","JJ":7,"JG":4,"JP":2,"JE":1,"pct":0.666666666666667,"JV":0},{"team":"IMPALAS","JJ":7,"JG":3,"JP":2,"JE":2,"pct":0.6,"JV":0.5},{"team":"GACELAS","JJ":7,"JG":3,"JP":4,"JE":null,"pct":0.428571428571429,"JV":1.5},{"team":"LLAMAS","JJ":7,"JG":2,"JP":4,"JE":1,"pct":0.333333333333333,"JV":2}],"teams":{"ANTILOPES":{"batting_total":{"JUGADOR":"TOTALES","AB":168,"V":123,"C":42,"HT":29,"H2":5,"H3":0,"HR":1,"ST":0,"SF":0,"R":19,"CP":25,"SO":47,"BB":42,"GP":3,"%EN BASE":0.44047619047619,"%BATEO":0.235772357723577,"SLUG":0.300813008130081,"JJ":null,"Fildeo O":100,"Fildeo A":31,"Fildeo E":2,"Fildeo %FILDEO":0.984962406015038},"pitch_total":{"JUGADOR":"TOTALES","JG":4,"JP":2,"IP":34,"BL":170,"H":26,"HR":0,"C":33,"CL":25,"SO":55,"BB":41,"W":5,"GP":3,"BK":0,"PCL":2.94117647058824,"PGP":0.666666666666667,"WHIP":1.97058823529412,"JL":null}},"GACELAS":{"batting_total":{"JUGADOR":"TOTALES","AB":179,"V":121,"C":42,"HT":22,"H2":8,"H3":0,"HR":0,"ST":0,"SF":0,"R":26,"CP":22,"SO":59,"BB":51,"GP":7,"%EN BASE":0.446927374301676,"%BATEO":0.181818181818182,"SLUG":0.247933884297521,"JJ":null,"Fildeo O":95,"Fildeo A":31,"Fildeo E":13,"Fildeo %FILDEO":0.906474820143885},"pitch_total":{"JUGADOR":"TOTALES","JG":3,"JP":4,"IP":30.9899997413158,"BL":181,"H":40,"HR":1,"C":55,"CL":31,"SO":50,"BB":30,"W":17,"GP":5,"BK":0,"PCL":4.00129077234819,"PGP":0.428571428571429,"WHIP":2.2587931779385,"JL":null}},"IMPALAS":{"batting_total":{"JUGADOR":"TOTALES","AB":182,"V":128,"C":48,"HT":27,"H2":11,"H3":2,"HR":0,"ST":0,"SF":0,"R":23,"CP":23,"SO":56,"BB":48,"GP":5,"%EN BASE":0.441988950276243,"%BATEO":0.2109375,"SLUG":0.328125,"JJ":null,"Fildeo O":99,"Fildeo A":27,"Fildeo E":9,"Fildeo %FILDEO":0.933333333333333},"pitch_total":{"JUGADOR":"TOTALES","JG":3,"JP":2,"IP":33.3400000929832,"BL":173,"H":23,"HR":0,"C":36,"CL":27,"SO":53,"BB":39,"W":6,"GP":2,"BK":0,"PCL":3.23935212053973,"PGP":0.6,"WHIP":1.85962806919873,"JL":null}},"LLAMAS":{"batting_total":{"JUGADOR":"TOTALES","AB":163,"V":129,"C":35,"HT":23,"H2":1,"H3":0,"HR":0,"ST":0,"SF":0,"R":24,"CP":17,"SO":49,"BB":32,"GP":2,"%EN BASE":0.349693251533742,"%BATEO":0.178294573643411,"SLUG":0.186046511627907,"JJ":null,"Fildeo O":91,"Fildeo A":20,"Fildeo E":17,"Fildeo %FILDEO":0.8671875},"pitch_total":{"JUGADOR":"TOTALES","JG":2,"JP":4,"IP":30.660000026226,"BL":194,"H":16,"HR":0,"C":49,"CL":28,"SO":64,"BB":69,"W":7,"GP":7,"BK":0,"PCL":3.65296803340499,"PGP":0.333333333333333,"WHIP":2.77234181106629,"JL":null}}}}};
-const ORDER=["ANTILOPES","GACELAS","IMPALAS","LLAMAS"];
-const NAMES={ANTILOPES:"Antílopes",GACELAS:"Gacelas",IMPALAS:"Impalas",LLAMAS:"Llamas"};
-const fmt=(v,d=0)=>v===null||v===undefined||v===""?"—":(typeof v==="number"?v.toLocaleString("es-MX",{maximumFractionDigits:d}):v);
-const pct=v=>v===null||v===undefined?"—":(Number(v)*100).toLocaleString("es-MX",{maximumFractionDigits:1})+"%";
-const curr=DATA["2026-11-07"], prev=DATA["2026-10-24"];
-function val(t,key){return curr.teams[t].batting_total[key]}
-function kpi(label,value,foot){return `<div class="card"><div class="klabel">${label}</div><div class="kval">${value}</div><div class="kfoot">${foot}</div></div>`}
-function rowsTable(headers,rows){return `<thead><tr>${headers.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td class="${i>0?'num':''}">${c===null||c===undefined?'—':c}</td>`).join("")}</tr>`).join("")}</tbody>`}
-function renderGeneral(){
- const st=curr.standings;
- document.getElementById("kpis").innerHTML=[
-  kpi("Equipos", "4","Categoría U13"),
-  kpi("Juegos reportados",fmt(st.reduce((a,x)=>a+(Number(x.JJ)||0),0)),"Suma de JJ en la tabla oficial"),
-  kpi("Hits acumulados",fmt(ORDER.reduce((a,t)=>a+(Number(val(t,"HT"))||0),0)),"Según el total de cada equipo"),
-  kpi("Carreras anotadas",fmt(ORDER.reduce((a,t)=>a+(Number(val(t,"C"))||0),0)),"Según el total de cada equipo")
- ].join("");
- const sorted=[...st].sort((a,b)=>(Number(a.JG)||0)-(Number(b.JG)||0));
- document.getElementById("standings").innerHTML=rowsTable(["Pos.","Equipo","JJ","JG","JP","JE","%","J.V."],st.map((x,i)=>[
-   `<span class="rank">${i+1}</span>`,NAMES[x.team],fmt(x.JJ),fmt(x.JG),fmt(x.JP),fmt(x.JE),pct(x.pct),fmt(x.JV,1)
- ]));
- const metrics=[["Hits","HT"],["Carreras","C"],["Impulsadas","CP"],["Bases por bolas","BB"]];
- document.getElementById("offense").innerHTML=metrics.map(([label,key])=>{
-   const max=Math.max(1,...ORDER.map(t=>Number(val(t,key))||0));
-   return `<h4 style="margin:14px 0 5px">${label}</h4>`+ORDER.map(t=>`<div class="barline"><div>${NAMES[t]}</div><div class="bar"><span style="width:${(Number(val(t,key)||0)/max*100)}%"></span></div><b>${fmt(val(t,key))}</b></div>`).join("");
- }).join("");
- const pmetrics=[["Entradas reportadas","IP"],["Ponches","SO"],["Bases por bolas","BB"],["Carreras limpias","CL"]];
- document.getElementById("pitching").innerHTML=pmetrics.map(([label,key])=>{
-   const max=Math.max(1,...ORDER.map(t=>Number(curr.teams[t].pitch_total[key])||0));
-   return `<h4 style="margin:14px 0 5px">${label}</h4>`+ORDER.map(t=>{const v=curr.teams[t].pitch_total[key];return `<div class="barline"><div>${NAMES[t]}</div><div class="bar"><span style="background:var(--orange);width:${(Number(v||0)/max*100)}%"></span></div><b>${fmt(v,2)}</b></div>`}).join("");
- }).join("");
+const DATA={"teams": {"Antílopes": {"10OCT26": {"AB": 20.0, "Hits": 3.0, "Carreras": 2.0, "RBI": 2.0, "AVG equipo": 0.166666666666667, "IP": 5.0, "Hits permitidos": 26.0, "BB pitcheo": 7.0, "SO pitcheo": 9.0, "PCL": 4.0, "O fildeo": 15.0}, "17OCT26": {"AB": 69.0, "Hits": 13.0, "Carreras": 15.0, "RBI": 10.0, "AVG equipo": 0.236363636363636, "IP": 15.0, "Hits permitidos": 80.0, "BB pitcheo": 20.0, "SO pitcheo": 24.0, "PCL": 4.53333333333333, "O fildeo": 42.0}, "24OCT26": {"AB": 117.0, "Hits": 17.0, "Carreras": 28.0, "RBI": 18.0, "AVG equipo": 0.202380952380952, "IP": 24.0, "Hits permitidos": 120.0, "BB pitcheo": 27.0, "SO pitcheo": 38.0, "PCL": 3.33333333333333, "O fildeo": 69.0}, "07NOV26": {"AB": 168.0, "Hits": 29.0, "Carreras": 42.0, "RBI": 25.0, "AVG equipo": 0.235772357723577, "IP": 34.0, "Hits permitidos": 170.0, "BB pitcheo": 41.0, "SO pitcheo": 55.0, "PCL": 2.94117647058824, "O fildeo": 100.0}}, "Gacelas": {"10OCT26": {"AB": 26.0, "Hits": 5.0, "Carreras": 7.0, "RBI": 4.0, "AVG equipo": 0.263157894736842, "IP": 4.99999994039536, "Hits permitidos": 20.0, "BB pitcheo": 2.0, "SO pitcheo": 13.0, "PCL": 1.60000001907349, "O fildeo": 15.0}, "17OCT26": {"AB": 83.0, "Hits": 11.0, "Carreras": 25.0, "RBI": 12.0, "AVG equipo": 0.211538461538462, "IP": 13.9999999403954, "Hits permitidos": 73.0, "BB pitcheo": 11.0, "SO pitcheo": 24.0, "PCL": 3.42857144316848, "O fildeo": 43.0}, "24OCT26": {"AB": 132.0, "Hits": 16.0, "Carreras": 35.0, "RBI": 18.0, "AVG equipo": 0.179775280898876, "IP": 21.6699998378754, "Hits permitidos": 122.0, "BB pitcheo": 19.0, "SO pitcheo": 35.0, "PCL": 4.06091373596558, "O fildeo": 66.0}, "07NOV26": {"AB": 179.0, "Hits": 22.0, "Carreras": 42.0, "RBI": 22.0, "AVG equipo": 0.181818181818182, "IP": 30.9899997413158, "Hits permitidos": 181.0, "BB pitcheo": 30.0, "SO pitcheo": 50.0, "PCL": 4.00129077234819, "O fildeo": 95.0}}, "Impalas": {"10OCT26": {"AB": 26.0, "Hits": 1.0, "Carreras": 6.0, "RBI": 1.0, "AVG equipo": 0.0625, "IP": 4.6700000166893, "Hits permitidos": 26.0, "BB pitcheo": 5.0, "SO pitcheo": 11.0, "PCL": 5.13918627713717, "O fildeo": 14.0}, "17OCT26": {"AB": 80.0, "Hits": 13.0, "Carreras": 18.0, "RBI": 10.0, "AVG equipo": 0.228070175438596, "IP": 13.3400000333786, "Hits permitidos": 75.0, "BB pitcheo": 17.0, "SO pitcheo": 23.0, "PCL": 4.49775111318376, "O fildeo": 41.0}, "24OCT26": {"AB": 129.0, "Hits": 22.0, "Carreras": 38.0, "RBI": 18.0, "AVG equipo": 0.234042553191489, "IP": 22.3400000929832, "Hits permitidos": 122.0, "BB pitcheo": 28.0, "SO pitcheo": 39.0, "PCL": 3.7600716047617, "O fildeo": 66.0}, "07NOV26": {"AB": 182.0, "Hits": 27.0, "Carreras": 48.0, "RBI": 23.0, "AVG equipo": 0.2109375, "IP": 33.3400000929832, "Hits permitidos": 173.0, "BB pitcheo": 39.0, "SO pitcheo": 53.0, "PCL": 3.23935212053973, "O fildeo": 99.0}}, "Llamas": {"10OCT26": {"AB": 26.0, "Hits": 3.0, "Carreras": 7.0, "RBI": 5.0, "AVG equipo": 0.15, "IP": 5.0, "Hits permitidos": 26.0, "BB pitcheo": 9.0, "SO pitcheo": 14.0, "PCL": 3.2, "O fildeo": 15.0}, "17OCT26": {"AB": 76.0, "Hits": 17.0, "Carreras": 23.0, "RBI": 11.0, "AVG equipo": 0.278688524590164, "IP": 14.000000089407, "Hits permitidos": 87.0, "BB pitcheo": 29.0, "SO pitcheo": 34.0, "PCL": 4.57142854223446, "O fildeo": 42.0}, "24OCT26": {"AB": 116.0, "Hits": 20.0, "Carreras": 29.0, "RBI": 14.0, "AVG equipo": 0.21505376344086, "IP": 20.6700000464916, "Hits permitidos": 141.0, "BB pitcheo": 51.0, "SO pitcheo": 48.0, "PCL": 4.25737783270767, "O fildeo": 64.0}, "07NOV26": {"AB": 163.0, "Hits": 23.0, "Carreras": 35.0, "RBI": 17.0, "AVG equipo": 0.178294573643411, "IP": 30.660000026226, "Hits permitidos": 194.0, "BB pitcheo": 69.0, "SO pitcheo": 64.0, "PCL": 3.65296803340499, "O fildeo": 91.0}}}, "latest": {"Antílopes": {"AB": 168.0, "Hits": 29.0, "Carreras": 42.0, "RBI": 25.0, "AVG equipo": 0.235772357723577, "IP": 34.0, "Hits permitidos": 170.0, "BB pitcheo": 41.0, "SO pitcheo": 55.0, "PCL": 2.94117647058824, "O fildeo": 100.0}, "Gacelas": {"AB": 179.0, "Hits": 22.0, "Carreras": 42.0, "RBI": 22.0, "AVG equipo": 0.181818181818182, "IP": 30.9899997413158, "Hits permitidos": 181.0, "BB pitcheo": 30.0, "SO pitcheo": 50.0, "PCL": 4.00129077234819, "O fildeo": 95.0}, "Impalas": {"AB": 182.0, "Hits": 27.0, "Carreras": 48.0, "RBI": 23.0, "AVG equipo": 0.2109375, "IP": 33.3400000929832, "Hits permitidos": 173.0, "BB pitcheo": 39.0, "SO pitcheo": 53.0, "PCL": 3.23935212053973, "O fildeo": 99.0}, "Llamas": {"AB": 163.0, "Hits": 23.0, "Carreras": 35.0, "RBI": 17.0, "AVG equipo": 0.178294573643411, "IP": 30.660000026226, "Hits permitidos": 194.0, "BB pitcheo": 69.0, "SO pitcheo": 64.0, "PCL": 3.65296803340499, "O fildeo": 91.0}}, "increments": {"Antílopes": {"17OCT26": {"Incremento AB": 49.0, "Incremento Hits": 10.0, "Incremento Carreras": 13.0, "Incremento RBI": 8.0, "Incremento BB bateo": 12.0, "Incremento SO bateo": 12.0, "Incremento IP": 10.0, "Incremento Hits permitidos": 54.0, "Incremento BB pitcheo": 13.0, "Incremento SO pitcheo": 15.0, "Incremento O fildeo": 27.0, "Incremento A fildeo": 9.0, "Incremento E fildeo": 0.0}, "24OCT26": {"Incremento AB": 48.0, "Incremento Hits": 4.0, "Incremento Carreras": 13.0, "Incremento RBI": 8.0, "Incremento BB bateo": 18.0, "Incremento SO bateo": 12.0, "Incremento IP": 9.0, "Incremento Hits permitidos": 40.0, "Incremento BB pitcheo": 7.0, "Incremento SO pitcheo": 14.0, "Incremento O fildeo": 27.0, "Incremento A fildeo": 7.0, "Incremento E fildeo": 1.0}, "07NOV26": {"Incremento AB": 51.0, "Incremento Hits": 12.0, "Incremento Carreras": 14.0, "Incremento RBI": 7.0, "Incremento BB bateo": 10.0, "Incremento SO bateo": 10.0, "Incremento IP": 10.0, "Incremento Hits permitidos": 50.0, "Incremento BB pitcheo": 14.0, "Incremento SO pitcheo": 17.0, "Incremento O fildeo": 31.0, "Incremento A fildeo": 9.0, "Incremento E fildeo": 0.0}}, "Gacelas": {"17OCT26": {"Incremento AB": 57.0, "Incremento Hits": 6.0, "Incremento Carreras": 18.0, "Incremento RBI": 8.0, "Incremento BB bateo": 20.0, "Incremento SO bateo": 17.0, "Incremento IP": 9.000000000000039, "Incremento Hits permitidos": 53.0, "Incremento BB pitcheo": 9.0, "Incremento SO pitcheo": 11.0, "Incremento O fildeo": 28.0, "Incremento A fildeo": 15.0, "Incremento E fildeo": 4.0}, "24OCT26": {"Incremento AB": 49.0, "Incremento Hits": 5.0, "Incremento Carreras": 10.0, "Incremento RBI": 6.0, "Incremento BB bateo": 11.0, "Incremento SO bateo": 18.0, "Incremento IP": 7.669999897480002, "Incremento Hits permitidos": 49.0, "Incremento BB pitcheo": 8.0, "Incremento SO pitcheo": 11.0, "Incremento O fildeo": 23.0, "Incremento A fildeo": 6.0, "Incremento E fildeo": 7.0}, "07NOV26": {"Incremento AB": 47.0, "Incremento Hits": 6.0, "Incremento Carreras": 7.0, "Incremento RBI": 4.0, "Incremento BB bateo": 13.0, "Incremento SO bateo": 15.0, "Incremento IP": 9.319999903440397, "Incremento Hits permitidos": 59.0, "Incremento BB pitcheo": 11.0, "Incremento SO pitcheo": 15.0, "Incremento O fildeo": 29.0, "Incremento A fildeo": 8.0, "Incremento E fildeo": 2.0}}, "Impalas": {"17OCT26": {"Incremento AB": 54.0, "Incremento Hits": 12.0, "Incremento Carreras": 12.0, "Incremento RBI": 9.0, "Incremento BB bateo": 13.0, "Incremento SO bateo": 15.0, "Incremento IP": 8.6700000166893, "Incremento Hits permitidos": 49.0, "Incremento BB pitcheo": 12.0, "Incremento SO pitcheo": 12.0, "Incremento O fildeo": 27.0, "Incremento A fildeo": 8.0, "Incremento E fildeo": 4.0}, "24OCT26": {"Incremento AB": 49.0, "Incremento Hits": 9.0, "Incremento Carreras": 20.0, "Incremento RBI": 8.0, "Incremento BB bateo": 8.0, "Incremento SO bateo": 11.0, "Incremento IP": 9.0000000596046, "Incremento Hits permitidos": 47.0, "Incremento BB pitcheo": 11.0, "Incremento SO pitcheo": 16.0, "Incremento O fildeo": 25.0, "Incremento A fildeo": 5.0, "Incremento E fildeo": 3.0}, "07NOV26": {"Incremento AB": 53.0, "Incremento Hits": 5.0, "Incremento Carreras": 10.0, "Incremento RBI": 5.0, "Incremento BB bateo": 18.0, "Incremento SO bateo": 16.0, "Incremento IP": 11.0, "Incremento Hits permitidos": 51.0, "Incremento BB pitcheo": 11.0, "Incremento SO pitcheo": 14.0, "Incremento O fildeo": 33.0, "Incremento A fildeo": 10.0, "Incremento E fildeo": 1.0}}, "Llamas": {"17OCT26": {"Incremento AB": 50.0, "Incremento Hits": 14.0, "Incremento Carreras": 16.0, "Incremento RBI": 6.0, "Incremento BB bateo": 9.0, "Incremento SO bateo": 11.0, "Incremento IP": 9.000000089407, "Incremento Hits permitidos": 61.0, "Incremento BB pitcheo": 20.0, "Incremento SO pitcheo": 20.0, "Incremento O fildeo": 27.0, "Incremento A fildeo": 3.0, "Incremento E fildeo": 7.0}, "24OCT26": {"Incremento AB": 40.0, "Incremento Hits": 3.0, "Incremento Carreras": 6.0, "Incremento RBI": 3.0, "Incremento BB bateo": 7.0, "Incremento SO bateo": 14.0, "Incremento IP": 6.669999957084602, "Incremento Hits permitidos": 54.0, "Incremento BB pitcheo": 22.0, "Incremento SO pitcheo": 14.0, "Incremento O fildeo": 22.0, "Incremento A fildeo": 5.0, "Incremento E fildeo": 6.0}, "07NOV26": {"Incremento AB": 47.0, "Incremento Hits": 3.0, "Incremento Carreras": 6.0, "Incremento RBI": 3.0, "Incremento BB bateo": 11.0, "Incremento SO bateo": 13.0, "Incremento IP": 9.9899999797344, "Incremento Hits permitidos": 53.0, "Incremento BB pitcheo": 18.0, "Incremento SO pitcheo": 16.0, "Incremento O fildeo": 27.0, "Incremento A fildeo": 7.0, "Incremento E fildeo": 4.0}}}, "standings": [{"team": "ANTILOPES", "JJ": 7, "JG": 4, "JP": 2, "JE": 1, "pct": 0.666666666666667, "JV": 0}, {"team": "IMPALAS", "JJ": 7, "JG": 3, "JP": 2, "JE": 2, "pct": 0.6, "JV": 0.5}, {"team": "GACELAS", "JJ": 7, "JG": 3, "JP": 4, "JE": null, "pct": 0.428571428571429, "JV": 1.5}, {"team": "LLAMAS", "JJ": 7, "JG": 2, "JP": 4, "JE": 1, "pct": 0.333333333333333, "JV": 2}]};
+const order=['Antílopes','Gacelas','Impalas','Llamas'],cuts=['10OCT26','17OCT26','24OCT26','07NOV26'];
+const fmt=(v,d=0)=>v==null?'—':Number(v).toLocaleString('es-MX',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct=v=>v==null?'—':Number(v).toFixed(3).replace(/^0/,'');
+function selected(){const t=document.getElementById('team').value;return t==='TODOS'?order:[t]}
+function table(headers,rows){return '<thead><tr>'+headers.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</tbody>'}
+function render(){
+ const ts=selected(),latest=DATA.latest;
+ const sum=k=>ts.reduce((a,t)=>a+(Number(latest[t][k])||0),0);
+ const ab=sum('AB'),hits=sum('Hits'),runs=sum('Carreras'),rbi=sum('RBI');
+ const kpis=[['Turnos al bate',fmt(ab),'Acumulado'],['Hits',fmt(hits),'Acumulado'],['Carreras',fmt(runs),'Anotadas'],['AVG colectivo',ab?fmt(hits/ab,3):'—','Hits / AB']];
+ document.getElementById('kpis').innerHTML=kpis.map(x=>`<div class="card"><div class="klabel">${x[0]}</div><div class="kvalue">${x[1]}</div><div class="hint">${x[2]}</div></div>`).join('');
+ const rows=ts.map(t=>{const x=latest[t];return [t,fmt(x.AB),fmt(x.Hits),fmt(x.Carreras),fmt(x.RBI),fmt(x['AVG equipo'],3),fmt(x.IP,2),fmt(x['Hits permitidos']),fmt(x['BB pitcheo']),fmt(x['SO pitcheo']),fmt(x.PCL,2),fmt(x['O fildeo'])]});
+ document.getElementById('comparison').innerHTML=table(['Equipo','AB','Hits','Carreras','RBI','AVG','IP','H permitidos','BB pitcheo','SO pitcheo','PCL','Outs'],rows);
+ const names={ANTILOPES:'Antílopes',GACELAS:'Gacelas',IMPALAS:'Impalas',LLAMAS:'Llamas'};
+ const srows=DATA.standings.map((x,i)=>[String(i+1),names[x.team]||x.team,fmt(x.JJ),fmt(x.JG),fmt(x.JP),fmt(x.JE),fmt(x.pct,3),fmt(x.JV,1)]);
+ document.getElementById('standings').innerHTML=table(['Pos.','Equipo','JJ','JG','JP','JE','%','J.V.'],srows);
+ const maxAB=Math.max(1,...ts.flatMap(t=>cuts.map(c=>DATA.teams[t][c].AB)));
+ document.getElementById('trend').innerHTML=ts.map(t=>`<div style="margin:13px 0"><strong>${t}</strong>`+cuts.map(c=>{let v=DATA.teams[t][c].AB;return `<div class="barrow"><span>${c}</span><div class="track"><div class="fill" style="width:${v/maxAB*100}%"></div></div><b>${fmt(v)}</b></div>`}).join('')+'</div>').join('');
+ const maxRuns=Math.max(1,...ts.map(t=>latest[t].Carreras));
+ document.getElementById('production').innerHTML=ts.map(t=>`<div class="barrow"><span>${t}</span><div class="track"><div class="fill" style="width:${latest[t].Carreras/maxRuns*100}%"></div></div><b>${fmt(latest[t].Carreras)}</b></div>`).join('');
+ const drows=ts.flatMap(t=>cuts.slice(1).map(c=>{const x=DATA.increments[t][c];return [t,c,fmt(x['Incremento AB']),fmt(x['Incremento Hits']),fmt(x['Incremento Carreras']),fmt(x['Incremento RBI']),fmt(x['Incremento IP'],2),fmt(x['Incremento SO pitcheo']),fmt(x['Incremento E fildeo'])]}));
+ document.getElementById('deltas').innerHTML=table(['Equipo','Corte','Δ AB','Δ Hits','Δ Carreras','Δ RBI','Δ IP','Δ SO pitcheo','Δ Errores'],drows);
 }
-function renderTeam(){
- const t=document.getElementById("teamSelect").value||"ANTILOPES",x=curr.teams[t],b=x.batting_total,p=x.pitch_total;
- document.getElementById("teamKpis").innerHTML=[
- kpi("Jugadoras con registro",fmt(x.batting.length),"Tabla de bateo"),
- kpi("Hits",fmt(b.HT),"Acumulado del equipo"),
- kpi("Carreras",fmt(b.C),"Anotadas"),
- kpi("Carreras impulsadas",fmt(b.CP),"Acumuladas")
- ].join("");
- document.getElementById("batters").innerHTML=rowsTable(["Jugadora","JJ","AB","Hits","C","CP","SO","BB"],x.batting.map(a=>[a.name,fmt(a.JJ),fmt(a.AB),fmt(a.HT),fmt(a.C),fmt(a.CP),fmt(a.SO),fmt(a.BB)]));
- document.getElementById("pitchers").innerHTML=rowsTable(["Pitcher","JL","JG","JP","IP*","H","CL","SO","BB"],x.pitchers.map(a=>[a.name,fmt(a.JL),fmt(a.JG),fmt(a.JP),fmt(a.IP,2),fmt(a.H),fmt(a.CL),fmt(a.SO),fmt(a.BB)]));
- document.getElementById("fielding").innerHTML=`<div class="grid kpis">${kpi("Outs",fmt(b["Fildeo O"]),"Total reportado")}${kpi("Asistencias",fmt(b["Fildeo A"]),"Total reportado")}${kpi("Errores",fmt(b["Fildeo E"]),"Total reportado")}${kpi("% fildeo",pct(b["%FILDEO"]),"Valor publicado")}</div>`;
-}
-function renderWeekly(){
- const metrics=[["JJ","JJ"],["AB","AB"],["Hits","HT"],["Carreras","C"],["Dobles","H2"],["Carreras impulsadas","CP"],["Ponches al bate","SO"],["Bases por bolas al bate","BB"],["Outs en fildeo","Fildeo O"],["Asistencias","Fildeo A"],["Errores","Fildeo E"]];
- document.getElementById("weeklyTable").innerHTML=rowsTable(["Equipo","Indicador","24 oct","7 nov","Cambio"],ORDER.flatMap(t=>metrics.map(([label,key])=>{
-   const old=prev.teams[t].batting_total[key],now=curr.teams[t].batting_total[key];
-   const delta=(typeof old==="number"&&typeof now==="number")?fmt(now-old):"—";
-   return [NAMES[t],label,fmt(old),fmt(now),delta];
- })));
-}
-// El dashboard público solo renderiza indicadores colectivos.
-// Se eliminan los controles del módulo privado para evitar referencias a elementos inexistentes.
-renderGeneral();
-renderWeekly();
+document.getElementById('team').addEventListener('change',render);render();
 </script></body></html>

@@ -5,6 +5,7 @@
 :root{--orange:#F28C28;--black:#171717;--ink:#202124;--muted:#667085;--bg:#f4f5f7;--line:#e5e7eb;--white:#fff}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px Inter,Segoe UI,Arial,sans-serif}
 header{background:linear-gradient(115deg,#171717 0%,#292929 68%,#a9500b 100%);color:#fff;border-bottom:5px solid var(--orange)}
+.back-link{display:inline-block;margin-top:12px;padding:8px 12px;border:1px solid #ffffff80;border-radius:9px;color:#fff;text-decoration:none;font-size:13px;font-weight:800}.back-link:hover{background:var(--orange);border-color:var(--orange);color:#171717}
 .wrap{max-width:1200px;margin:auto;padding:22px}
 .brand{font-size:12px;font-weight:900;letter-spacing:2px;color:var(--orange)}
 h1{font-size:clamp(26px,4vw,40px);margin:10px 0 6px}header p{margin:0;color:#f3f3f3}
@@ -29,7 +30,7 @@ footer{color:var(--muted);font-size:12px;padding:20px 0 34px}
 @media(max-width:850px){.kpis,.teamcards{grid-template-columns:repeat(2,minmax(0,1fr))}.twocol{grid-template-columns:1fr}}
 @media(max-width:480px){.kpis,.teamcards{grid-template-columns:1fr 1fr}.wrap,main{padding:16px}.kvalue{font-size:23px}}
 </style></head><body>
-<header><div class="wrap"><div class="brand">LIGA OLMECA · SÓFTBOL FEMENIL</div><h1>Tablero colectivo U13</h1><p>Temporada 2026–2027 · Información acumulada al 7 de noviembre de 2026</p></div></header>
+<header><div class="wrap"><div class="brand">LIGA OLMECA · SÓFTBOL FEMENIL</div><a class="back-link" href="index.html">← Regresar al portal</a><h1>Tablero colectivo U13</h1><p>Temporada 2026–2027 · Información acumulada al 7 de noviembre de 2026</p></div></header>
 <main>
 <div class="toolbar"><div><strong>Vista de equipos</strong> <span class="hint">· Solo indicadores colectivos</span></div>
 <div><label for="team">Equipo: </label><select id="team"><option value="TODOS">Todos los equipos</option><option>Antílopes</option><option>Gacelas</option><option>Impalas</option><option>Llamas</option></select></div></div>

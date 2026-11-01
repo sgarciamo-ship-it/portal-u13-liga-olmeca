@@ -1,0 +1,18 @@
+PORTAL U13 LIGA OLMECA — PAQUETE INICIAL
+
+CONTENIDO
+- index.html: portada del portal.
+- dashboard-publico.html: dashboard público con indicadores colectivos al corte del 7 de noviembre de 2026.
+
+IMPORTANTE SOBRE PRIVACIDAD
+Este paquete contiene únicamente información colectiva en el dashboard público. No contiene el ranking ni las fichas individuales. El área privada es una sección informativa; todavía no autentica usuarios ni concede permisos. No publicar archivos con estadísticas individuales hasta implementar un backend con autenticación y autorización por equipo.
+
+PUBLICACIÓN EN GOOGLE SITES
+Google Sites no aloja estos archivos como un sitio web completo. Primero hay que alojar ambos archivos en un servicio web estático (por ejemplo, GitHub Pages) conservando los dos archivos en la misma carpeta. Después:
+1. Abrir el Google Site y entrar en modo edición.
+2. Ir a Insertar > Incorporar > Por URL.
+3. Pegar la URL pública de index.html alojada.
+4. Ajustar el marco insertado al ancho de la página y aumentar su altura.
+5. Publicar el Google Site.
+
+No basta con restringir u ocultar una página de Google Sites para proteger datos individuales si estos se encuentran en archivos públicos. El módulo privado requiere autenticación real y reglas de acceso en servidor.

@@ -72,6 +72,20 @@ thead th,th{background:#11151c!important;color:#f5b36c!important;border-color:#3
 tbody tr:nth-child(odd){background:#202633!important}tbody tr:nth-child(even){background:#171c25!important}td{color:#e5eaf3!important;border-color:#343d4c!important}
 select,input,button{background:#252b37!important;color:#f4f6fa!important;border-color:#3b4556!important}
 a{color:#f6b56d}
+
+/* V2.1 · polish visual integral sin tocar lógica ni datos */
+:root{--focus:#ffb66b}
+html{scroll-behavior:smooth}
+body{min-height:100vh}
+.card,.team-identity,.teamcard,.box,.nextgame,.auth-card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.card:hover,.team-identity:hover,.teamcard:hover,.nextgame:hover{border-color:#59636d}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+button:disabled{opacity:.55;cursor:not-allowed}
+header h1{letter-spacing:-.6px}
+header p{line-height:1.6}
+.team-strip,.teams{margin-top:18px}
+footer{padding-bottom:28px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 </style></head><body>
 <header><div class="wrap"><div class="brand">LIGA OLMECA · SÓFTBOL FEMENIL</div><a class="back-link" href="index.html">← Regresar al portal</a><h1>Tablero colectivo U13</h1><p>Temporada 2026–2027 · Información acumulada al 7 de noviembre de 2026</p></div></header>
 <main><div class="team-strip" aria-label="Equipos de Liga Olmeca U13">

@@ -1,1 +1,1 @@
-# portal-u13-liga-olmeca
+# portal-u13-liga-olmeca\n\n## Actualización visual V2\n- Calendario: botón de regreso al portal desde el encabezado y al pie.\n- Inicio: microinteracciones, foco accesible y respeto a movimiento reducido.\n- Se conservaron los datos, scripts, rutas y conexión existente.\n

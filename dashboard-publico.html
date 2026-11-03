@@ -86,6 +86,33 @@ header p{line-height:1.6}
 .team-strip,.teams{margin-top:18px}
 footer{padding-bottom:28px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* V3.3 · posiciones deportivas */
+#standings{border-collapse:separate;border-spacing:0;width:100%;min-width:680px;overflow:hidden;border-radius:14px;border:1px solid #303b4b}
+#standings thead th{background:#242d3b;color:#cbd5e1;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:15px 13px;border-bottom:2px solid #f28c28}
+#standings tbody td{padding:15px 13px;font-weight:750;border-bottom:1px solid #303b4b;background:#171e29}
+#standings tbody tr:first-child td{background:linear-gradient(90deg,#382b18,#202a35);color:#fff!important}
+#standings tbody tr:first-child td:first-child{color:#ffb52e!important;font-size:20px}
+#standings tbody tr:nth-child(2) td:first-child{color:#cbd5e1!important}
+#standings tbody tr:nth-child(3) td:first-child{color:#d99a6b!important}
+#standings tbody tr:last-child td{border-bottom:0}
+#standings tbody tr:hover td{background:#293445}
+#standings tbody td:nth-child(n+3){text-align:center;font-variant-numeric:tabular-nums}
+#standings tbody td:nth-child(2){font-weight:900;letter-spacing:.02em}
+#standings tbody td:nth-child(7){color:#ffb66b!important}
+.section h2{display:flex;align-items:center;gap:10px}
+.section h2:before{content:"";display:inline-block;width:4px;height:22px;background:#f28c28;border-radius:4px}
+
+/* V3.4 · tarjetas de equipo */
+.team-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:18px 0 22px}
+.team-identity{position:relative;min-height:92px;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;background:linear-gradient(145deg,#242b35,#171c23);box-shadow:0 8px 20px #0002}
+.team-identity:after{content:"VER EQUIPO ↗";position:absolute;right:12px;bottom:9px;font-size:9px;letter-spacing:.08em;color:#aab4c3;font-weight:900}
+.team-identity:hover,.team-identity:focus-visible{transform:translateY(-3px);box-shadow:0 12px 26px #0004;border-color:#f28c28;outline:none}
+.team-identity b{font-size:14px}
+.team-identity small{font-size:11px}
+.team-identity img{width:62px;height:62px}
+@media(max-width:850px){.team-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:460px){.team-strip{gap:8px}.team-identity{padding:9px;gap:7px;min-height:78px}.team-identity img{width:44px;height:44px}.team-identity b{font-size:11px}.team-identity:after{font-size:8px;right:8px}}
 </style></head><body>
 <header><div class="wrap"><div class="brand">LIGA OLMECA · SÓFTBOL FEMENIL</div><a class="back-link" href="index.html">← Regresar al portal</a><h1>Tablero colectivo U13</h1><p>Temporada 2026–2027 · Información acumulada al 7 de noviembre de 2026</p></div></header>
 <main><div class="team-strip" aria-label="Equipos de Liga Olmeca U13">
@@ -94,6 +121,16 @@ footer{padding-bottom:28px}
 <div class="team-identity llamas"><img src="assets/Llamas.png" alt="Escudo Llamas"><div><b>LLAMAS</b><small>Liga Olmeca U13</small></div></div>
 <div class="team-identity impalas"><img src="assets/Impalas.png" alt="Escudo Impalas"><div><b>IMPALAS</b><small>Liga Olmeca U13</small></div></div>
 </div>
+<script>
+document.querySelectorAll('.team-identity').forEach(card=>{
+ card.setAttribute('tabindex','0');card.setAttribute('role','button');
+ const label=card.querySelector('b').textContent.trim().toLowerCase();
+ const teamName=label.charAt(0).toUpperCase()+label.slice(1);
+ card.setAttribute('aria-label','Filtrar '+teamName);
+ const activate=()=>{const sel=document.getElementById('team');sel.value=teamName;sel.dispatchEvent(new Event('change'));document.querySelector('.toolbar').scrollIntoView({behavior:'smooth',block:'start'});};
+ card.addEventListener('click',activate);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
+});
+</script>
 <div class="toolbar"><div><strong>Vista de equipos</strong> <span class="hint">· Solo indicadores colectivos</span></div>
 <div><label for="team">Equipo: </label><select id="team"><option value="TODOS">Todos los equipos</option><option>Antílopes</option><option>Gacelas</option><option>Impalas</option><option>Llamas</option></select></div></div>
 <section class="grid kpis" id="kpis"></section>

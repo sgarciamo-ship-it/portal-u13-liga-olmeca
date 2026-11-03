@@ -1,11 +1,14 @@
-PORTAL U13 LIGA OLMECA — SISTEMA VISUAL
+PORTAL U13 LIGA OLMECA — UI MAESTRO
 
-Se incorporó una capa visual común a las páginas públicas:
-- negro profundo como fondo
-- paneles carbón y bordes discretos
-- naranja Liga Olmeca para acciones y métricas
-- texto claro y tablas con contraste
-- adaptación básica en móvil
+Estándar aplicado a las 5 vistas públicas HTML:
+* Negro profundo (#08090b)
+* Superficies carbón (#141518 / #1d1e22)
+* Naranja Liga Olmeca (#e87532 / #f28c28)
+* Tipografía blanca y texto auxiliar gris
+* Tablas oscuras con alternancia carbón; texto de filas siempre legible
+* Header negro con línea naranja
+* Controles y navegación con estados activos naranja
+* Ajustes responsive para pantallas pequeñas
 
-La capa se agrega al final del CSS de cada página para preservar estructura y funcionalidad.
-No publicar la carpeta private en GitHub Pages.
+Se conserva el HTML, la lógica y el contenido original. La capa UI se añade como CSS al final.
+No subir la carpeta private a GitHub Pages.

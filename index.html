@@ -1,60 +1,37 @@
-<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Liga Olmeca | Portal U13</title>
-<style>
-:root{--bg:#101214;--panel:#1d2228;--panel2:#252b32;--line:#363d46;--orange:#f07827;--white:#f4f6f8;--muted:#aab3bd}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:16px/1.5 Inter,Segoe UI,Arial,sans-serif}
-header{background:linear-gradient(110deg,#090a0b,#191d22 68%,#4b260f);border-bottom:4px solid var(--orange);padding:8px 4vw}
-.head{max-width:1400px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:20px}.brand img{width:118px;height:118px;object-fit:contain;filter:drop-shadow(0 5px 8px #0008)}.brandline{font-size:clamp(24px,4vw,48px);font-weight:950;line-height:1.02;font-style:italic;letter-spacing:-1px}.brandline span{color:var(--orange)}.season{border-left:4px solid var(--orange);padding:10px 0 10px 20px;font-weight:900;font-size:18px}.season b{color:var(--orange)}
-main{max-width:1400px;margin:16px auto;padding:0 24px 48px}
-.teams{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
-.team{display:flex;align-items:center;gap:16px;padding:12px 16px;background:linear-gradient(145deg,#252a30,#1b1f24);border:1px solid var(--line);border-radius:16px;position:relative;overflow:hidden;min-height:130px}
-.team:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-35px;bottom:-45px;background:#ffffff08}
-.team img{width:92px;height:92px;object-fit:cover;object-position:center;flex-shrink:0;transform:none;border-radius:10px;mix-blend-mode:screen;filter:contrast(1.15) saturate(1.1)}.team strong{font-size:19px;letter-spacing:.5px}.team small{display:block;color:var(--muted);margin-top:4px}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.card{background:linear-gradient(145deg,#252a30,#191d22);border:1px solid #3a414a;border-left:5px solid var(--orange);border-radius:18px;padding:22px;min-height:210px;display:flex;flex-direction:column;box-shadow:0 8px 22px #0002}
-.icon{font-size:25px;margin-bottom:10px}.tag{align-self:flex-start;background:#4a321e;color:#ffb56d;font-size:12px;font-weight:900;letter-spacing:1px;padding:7px 12px;border-radius:24px}
-h2{font-size:clamp(24px,3vw,34px);margin:18px 0 8px;letter-spacing:-.7px}.desc{color:var(--muted);max-width:700px;margin:0 0 18px}
-.btn{display:inline-flex;align-items:center;gap:12px;margin-top:auto;align-self:flex-start;background:var(--orange);border:1px solid #ff9b51;color:#17100a;text-decoration:none;font-weight:900;padding:14px 22px;border-radius:10px;box-shadow:0 4px 12px #f0782725}.btn:hover{filter:brightness(1.08)}
-footer{color:#818b96;text-align:center;padding:20px;font-size:13px}
-@media(max-width:850px){.teams{grid-template-columns:repeat(2,1fr)}.head{align-items:flex-start}.season{font-size:14px}}
-@media(max-width:560px){header{padding:8px}.brand img{width:76px;height:76px}.brandline{font-size:25px}.season{display:none}main{padding:0 14px 30px;margin:18px auto}.teams{gap:8px}.team{padding:8px;gap:8px}.team img{width:64px;height:64px;object-fit:cover;transform:none}.team strong{font-size:12px}.team small{font-size:10px}.cards{grid-template-columns:1fr}.card{padding:20px;min-height:220px}}
-/* LOGOS: ajuste final, escudo contenido y texto legible */
-.team{min-height:132px!important;gap:12px!important;padding:10px 14px!important}
-.team img{width:112px!important;height:112px!important;max-width:112px!important;object-fit:contain!important;margin:0!important;transform:none!important;mix-blend-mode:normal!important;position:relative;z-index:1;flex:0 0 112px!important}
-.team>div{position:relative;z-index:2;flex:1 1 auto!important;min-width:0}
-.team strong{font-size:18px!important;white-space:nowrap}
-.team small{font-size:13px!important}
-@media(max-width:560px){.team{min-height:100px!important;padding:7px!important;gap:6px!important}.team img{width:68px!important;height:68px!important;max-width:68px!important;flex-basis:68px!important}.team strong{font-size:12px!important}.team small{font-size:10px!important}}
-<style>
-:root{--o:#ef7628;--bg:#0b0d0f;--panel:#15181c;--line:#30353b;--muted:#a7afb8}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f4f5f6;font:15px Inter,Segoe UI,Arial,sans-serif}
-header{height:138px;background:linear-gradient(110deg,#08090a,#171a1e);border-bottom:3px solid var(--o);padding:10px 24px}
-.head{max-width:none;height:100%;display:flex;align-items:center;justify-content:space-between}
-.brand img{width:170px;height:110px;object-fit:contain}.brandline{font-size:clamp(28px,4vw,52px);font-style:italic;font-weight:950;line-height:1}.brandline span{color:var(--o)}.season{font-weight:900;border-left:4px solid var(--o);padding:12px 0 12px 20px}.season b{color:var(--o)}
-main{max-width:none;margin:0;padding:0;display:grid;grid-template-columns:246px minmax(0,1fr);min-height:calc(100vh - 138px)}
-nav{background:#090a0b;border-right:1px solid #292d32;padding:22px 12px}
-nav a{display:flex;align-items:center;gap:14px;padding:15px 18px;margin-bottom:5px;border-radius:10px;color:#e8eaed;text-decoration:none;font-weight:700}
-nav a:hover,nav a.active{background:linear-gradient(90deg,#ef7628,#a94d19);color:white}
-.content{padding:24px;min-width:0}
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
-.kpi,.panel{background:linear-gradient(145deg,#171a1e,#101214);border:1px solid var(--line);border-radius:16px;padding:18px}
-.kpi{display:flex;align-items:center;gap:14px;min-height:105px}.ki{font-size:25px;color:var(--o)}.num{font-size:30px;font-weight:950}.label{color:var(--muted);font-size:12px;margin-top:4px}
-.columns{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px}.panel h2{font-size:19px;margin:0 0 15px}.panel h2 span{color:var(--o)}
-table{width:100%;border-collapse:collapse}th,td{padding:10px 7px;text-align:left;border-bottom:1px solid #2b3035;font-size:12px}th{color:#aeb6bf;font-weight:700}td:last-child,th:last-child{text-align:right}.rank{color:var(--o);font-weight:900}
-.leader{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #2b3035}.avatar{background:#422713;border:1px solid var(--o);border-radius:50%;width:42px;height:42px;display:grid;place-items:center;font-weight:900}.leaderinfo{flex:1;min-width:0}.leaderinfo small{display:block;color:var(--muted);font-size:11px}.leader strong{font-size:13px}.metric{font-size:22px;font-weight:950;color:white}
-.game{display:grid;grid-template-columns:48px 1fr 1fr 45px;gap:8px;align-items:center;padding:15px 0;border-bottom:1px solid #2b3035;font-size:12px}.date{background:#8d431b;border-radius:8px;text-align:center;padding:8px 3px;font-weight:900}.vs{text-align:center;color:#a7afb8;font-weight:900}.btn{display:inline-block;border:1px solid var(--o);border-radius:25px;padding:10px 16px;color:#fff;text-decoration:none;font-weight:800;margin-top:14px}.btn:hover{background:var(--o);color:#111}
-footer{background:#0b0d0f;color:#68717a}
-@media(max-width:1200px){.columns{grid-template-columns:1fr 1fr}.columns .panel:first-child{grid-column:1/-1}.kpis{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){header{height:auto;padding:12px}.brand img{width:65px;height:65px}.brandline{font-size:24px}.season{display:none}main{grid-template-columns:1fr}nav{display:flex;overflow:auto;padding:8px;gap:4px;border-right:0;border-bottom:1px solid var(--line)}nav a{white-space:nowrap;padding:10px;font-size:12px;margin:0}.content{padding:12px}.columns{grid-template-columns:1fr}.columns .panel:first-child{grid-column:auto}.kpis{gap:8px}.kpi{padding:12px;min-height:82px}.num{font-size:23px}.ki{font-size:18px}}
-</style></head>
-<body>
-<header><div class="head"><div class="brand"><img src="assets/Olmeca_Liga.png" alt="Logo Liga Olmeca"><div class="brandline">LIGA OLMECA<br><span>SOFTBALL</span> U13</div></div><div class="season"><b>TEMPORADA</b> 2026–2027</div></div></header>
-<main><nav><a class="active" href="index.html">⌂　Inicio</a><a href="dashboard-publico.html">♟　Posiciones</a><a href="dashboard-publico.html">▥　Estadísticas</a><a href="dashboard-publico.html">♙　Jugadoras</a><a href="calendario.html">▦　Calendario</a><a href="index.html#equipos">◇　Equipos</a><a href="dashboard-publico.html">▤　Cortes históricos</a><a href="admin.html">▧　Administración</a></nav><div class="content">
-<div class="kpis"><div class="kpi"><span class="ki">♟</span><div><div class="num">4</div><div class="label">Equipos U13</div></div></div><div class="kpi"><span class="ki">◎</span><div><div class="num">4</div><div class="label">Equipos con corte oficial</div></div></div><div class="kpi"><span class="ki">⚾</span><div><div class="num">692</div><div class="label">Turnos al bate (AB)</div></div></div><div class="kpi"><span class="ki">▥</span><div><div class="num">167</div><div class="label">Carreras anotadas · corte 07 NOV</div></div></div></div>
-<div class="columns"><section class="panel"><h2><span>♟</span> POSICIONES OFICIALES · CORTE 07 NOV 26</h2><table><thead><tr><th>#</th><th>Equipo</th><th>JJ</th><th>G</th><th>P</th><th>PCT</th></tr></thead><tbody><tr><td class="rank">1</td><td>Antílopes</td><td>7</td><td>4</td><td>2</td><td class="rank">.667</td></tr><tr><td class="rank">2</td><td>Impalas</td><td>7</td><td>3</td><td>2</td><td class="rank">.600</td></tr><tr><td class="rank">3</td><td>Gacelas</td><td>7</td><td>3</td><td>4</td><td class="rank">.429</td></tr><tr><td class="rank">4</td><td>Llamas</td><td>7</td><td>2</td><td>4</td><td class="rank">.333</td></tr></tbody></table><a class="btn" href="dashboard-publico.html">Ver posiciones completas ›</a></section>
-<section class="panel"><h2>LÍDERES ESTADÍSTICOS</h2><p class="muted">Rankings oficiales en preparación a partir de los cortes de Liga Olmeca. Se publicarán al validar la consolidación por jugadora.</p><a class="btn" href="dashboard-publico.html">Ver módulo estadístico ›</a></section>
-<section class="panel"><h2>CALENDARIO Y RESULTADOS</h2><p class="muted">Sección en integración con el calendario oficial. No se mostrarán juegos ni horarios sin validar.</p><a class="btn" href="calendario.html">Abrir calendario ›</a></section></div>
-<div id="equipos" style="margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px"><div class="kpi"><img style="width:62px;height:62px;object-fit:contain" src="assets/Antilopes.png"><b>ANTILOPES</b></div><div class="kpi"><img style="width:62px;height:62px;object-fit:contain" src="assets/Gacelas.png"><b>GACELAS</b></div><div class="kpi"><img style="width:62px;height:62px;object-fit:contain" src="assets/Llamas.png"><b>LLAMAS</b></div><div class="kpi"><img style="width:62px;height:62px;object-fit:contain" src="assets/Impalas.png"><b>IMPALAS</b></div></div></div></main><footer>Portal Liga Olmeca U13 · Temporada 2026–2027 · Corte oficial 7 de noviembre de 2026</footer>
-</body></html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portal U13 | Liga Olmeca</title><style>body{margin:0;background:#f4f5f7;color:#171717;font:16px Arial,sans-serif}.hero{background:linear-gradient(115deg,#171717,#292929 70%,#a9500b);color:white;border-bottom:6px solid #F28C28;padding:54px 22px}.wrap{max-width:1000px;margin:auto}.brand{font-weight:900;letter-spacing:2px;color:#F28C28;font-size:12px}h1{font-size:clamp(30px,5vw,48px);margin:12px 0}.panel{max-width:1000px;margin:28px auto;padding:0 22px}.card{background:white;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-bottom:16px}.btn{display:inline-block;background:#F28C28;color:#171717;text-decoration:none;font-weight:800;padding:13px 18px;border-radius:10px}.muted{color:#667085;line-height:1.6}.tag{font-size:12px;font-weight:800;color:#8a4b0b;background:#fff2e5;padding:6px 9px;border-radius:20px}
+/* Liga Olmeca U13 · Rediseño oscuro deportivo · capa visual */
+:root{--orange:#F28C28;--black:#111315;--ink:#F3F4F6;--muted:#A7AFB8;--bg:#111315;--line:#343A40;--white:#20252A;--surface:#20252A;--surface2:#292F35}
+html{color-scheme:dark} body{background:#111315!important;color:#F3F4F6!important}
+main,.panel,.wrap{color:inherit}
+.card,.scroll,table,.note{background:#20252A!important;color:#F3F4F6!important;border-color:#343A40!important;box-shadow:0 8px 24px #0005}
+th{background:#30363D!important;color:#fff!important}td,th{border-color:#3A424A!important}tr:nth-child(even) td{background:#252B31}
+.klabel,.hint,.muted,.count,.vs,footer{color:#A7AFB8!important}
+select,input,textarea{background:#171B1F!important;color:#F3F4F6!important;border:1px solid #454D56!important;border-radius:10px}
+button,.btn{background:#292F35!important;color:#F3F4F6!important;border:1px solid #454D56!important;border-radius:10px;transition:background .18s,border-color .18s,transform .18s}
+button:hover,.btn:hover{border-color:#F28C28!important;transform:translateY(-1px)}button.active,.active,.primary,.btn.primary{background:#F28C28!important;color:#171717!important;border-color:#F28C28!important}
+a{color:#F6A34F}a:hover{color:#FFC27F}
+header,.hero,.top{background:linear-gradient(115deg,#101214 0%,#20252A 70%,#713A12 100%)!important;color:#fff!important;border-bottom:4px solid #F28C28!important}
+.brand{color:#F28C28!important}h1,h2,h3,h4,strong,label{color:inherit}
+.team,.card{border-color:#343A40!important}.team{border-top:4px solid #F28C28!important}
+.track{background:#3A4148!important}.fill{background:linear-gradient(90deg,#D96F12,#F28C28)!important}
+.note{background:#2C251E!important;border-color:#80501F!important;color:#F8D8B8!important}
+.tag{background:#3B2B1D!important;color:#FFB76A!important}
+.back-link,.back{color:#fff!important;border-color:#ffffff70!important}
+@media(max-width:700px){.wrap,main,.panel{padding-left:14px!important;padding-right:14px!important}.card{padding:14px!important}}
+
+
+/* Team identity system */
+.team-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 24px}
+.team-identity{display:flex;align-items:center;gap:10px;min-width:0;background:#20252A;border:1px solid #343A40;border-radius:14px;padding:10px 12px;color:#F3F4F6}
+.team-identity img{width:54px;height:54px;object-fit:contain;flex:0 0 auto}
+.team-identity b{font-size:13px;letter-spacing:.5px}
+.team-identity small{display:block;color:#A7AFB8;font-size:10px;margin-top:3px}
+.team-identity.antilopes{border-top:3px solid #268BD2}.team-identity.gacelas{border-top:3px solid #8B55B5}.team-identity.llamas{border-top:3px solid #B64A67}.team-identity.impalas{border-top:3px solid #C62D37}
+.team-mark{display:inline-flex;align-items:center;gap:7px;font-weight:800;white-space:nowrap}.team-mark img{width:30px;height:30px;object-fit:contain;vertical-align:middle}
+@media(max-width:700px){.team-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.team-identity{padding:8px}.team-identity img{width:42px;height:42px}.team-identity b{font-size:11px}}
+</style></head><body><header class="hero"><div class="wrap"><div class="brand"><img src="assets/Olmeca_Liga.png" alt="Escudo Liga Olmeca" style="width:92px;height:92px;object-fit:contain;vertical-align:middle;margin-right:14px"> LIGA OLMECA · SÓFTBOL FEMENIL</div><h1>Portal de seguimiento U13</h1><p>Temporada 2026–2027</p></div></header><main class="panel"><div class="team-strip" aria-label="Equipos de Liga Olmeca U13">
+<div class="team-identity antilopes"><img src="assets/Antilopes.png" alt="Escudo Antílopes"><div><b>ANTÍLOPES</b><small>Liga Olmeca U13</small></div></div>
+<div class="team-identity gacelas"><img src="assets/Gacelas.png" alt="Escudo Gacelas"><div><b>GACELAS</b><small>Liga Olmeca U13</small></div></div>
+<div class="team-identity llamas"><img src="assets/Llamas.png" alt="Escudo Llamas"><div><b>LLAMAS</b><small>Liga Olmeca U13</small></div></div>
+<div class="team-identity impalas"><img src="assets/Impalas.png" alt="Escudo Impalas"><div><b>IMPALAS</b><small>Liga Olmeca U13</small></div></div>
+</div><section class="card"><span class="tag">TABLERO PÚBLICO</span><h2>Indicadores colectivos</h2><p class="muted">Consulta la evolución acumulada de Antílopes, Gacelas, Impalas y Llamas. Esta vista contiene exclusivamente indicadores de equipo.</p><a class="btn" href="dashboard-publico.html">Abrir tablero U13</a></section><section class="card"><span class="tag">ROL DE JUEGOS</span><h2>Calendario de Campo 4</h2><p class="muted">Consulta los encuentros por fecha o filtra el calendario por Gacelas, Impalas, Antílopes y Llamas.</p><a class="btn" href="calendario.html">Consultar calendario</a></section><section class="card"><h2>Área deportiva privada</h2><p class="muted">Los expedientes y estadísticas individuales de las jugadoras no se alojan en este portal público. Su consulta requiere una plataforma con autenticación, autorización por roles y almacenamiento protegido. Esta sección todavía no habilita acceso privado.</p></section><section class="card"><h2>Administración de la liga</h2><p class="muted">Acceso restringido a personal autorizado. Requiere inicio de sesión.</p><a class="btn" href="admin.html">Entrar al panel privado</a></section><p class="muted">Corte de información: 7 de noviembre de 2026. Fuente: reportes oficiales de Liga Olmeca Infantil Mayor. No incluye Intermedia ni Leonas.</p></main></body></html>

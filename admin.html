@@ -123,10 +123,17 @@ async function loadPrivateData(){
  $auth('login').classList.add('hidden');$auth('app').classList.remove('hidden');
  initPanel(data.payload);
 }
-$auth('loginBtn').addEventListener('click',async()=>{showError('El botón está activo; intentando conexión…');
- showError(''); if(!sb){if(!window.supabase || SUPABASE_URL.startsWith('PEGA_') || SUPABASE_ANON_KEY.startsWith('PEGA_')){showError('Primero configura Supabase siguiendo INICIO_RAPIDO.txt.');return;} sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}
- const {error}=await sb.auth.signInWithPassword({email:$auth('email').value,password:$auth('password').value});
- if(error){showError('No se pudo iniciar sesión. Revisa correo y contraseña.');return;} await loadPrivateData();
+$auth('loginBtn').addEventListener('click',async()=>{
+ const btn=$auth('loginBtn');showError('');btn.disabled=true;btn.textContent='Conectando…';
+ try{
+  if(!window.supabase){showError('No cargó Supabase (CDN). Revisa conexión o bloqueador.');return;}
+  if(!sb)sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+  showError('Conectando con Supabase…');
+  const {data,error}=await sb.auth.signInWithPassword({email:$auth('email').value.trim(),password:$auth('password').value});
+  if(error){showError('Error de acceso: '+error.message);return;}
+  showError('Acceso validado. Cargando expediente…');await loadPrivateData();
+ }catch(e){showError('Error de conexión: '+(e?.message||e));}
+ finally{btn.disabled=false;btn.textContent='Entrar';}
 });
 $auth('logoutBtn').addEventListener('click',async()=>{if(sb) await sb.auth.signOut();location.reload();});
 startSession();

@@ -29,6 +29,30 @@ header,.hero,.top{background:linear-gradient(115deg,#101214 0%,#20252A 70%,#713A
 .team-identity.antilopes{border-top:3px solid #268BD2}.team-identity.gacelas{border-top:3px solid #8B55B5}.team-identity.llamas{border-top:3px solid #B64A67}.team-identity.impalas{border-top:3px solid #C62D37}
 .team-mark{display:inline-flex;align-items:center;gap:7px;font-weight:800;white-space:nowrap}.team-mark img{width:30px;height:30px;object-fit:contain;vertical-align:middle}
 @media(max-width:700px){.team-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.team-identity{padding:8px}.team-identity img{width:42px;height:42px}.team-identity b{font-size:11px}}
+
+/* Portada renovada únicamente; enlaces y funciones originales intactos */
+body{font-family:"Segoe UI",Arial,sans-serif;background:#111315!important}
+.hero{padding:30px 22px!important;min-height:140px;display:flex;align-items:center}
+.hero .wrap{width:100%;max-width:1680px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:22px}
+.brand{display:flex;align-items:center;font-size:0;letter-spacing:0}
+.brand img{width:112px!important;height:112px!important;margin:0!important}
+.hero h1{font-size:clamp(34px,4.6vw,62px);font-weight:950;font-style:italic;letter-spacing:-1.5px;margin:0;line-height:1.05}
+.hero p{margin:0;border-left:4px solid var(--orange);padding:10px 0 10px 18px;font-size:18px;font-weight:900;white-space:nowrap}
+.panel{max-width:1680px!important;margin:20px auto!important;padding:0 28px 36px!important;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.team-strip{gap:14px;margin:20px 0 22px!important;grid-column:1/-1}
+.team-identity{min-height:150px;padding:14px 18px!important;border-top:0!important;position:relative;overflow:hidden}
+.team-identity:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:#ffffff06;right:-22px;bottom:-35px}
+.team-identity img{width:112px!important;height:112px!important;background:#08090b;border-radius:12px;padding:5px}
+.team-identity b{font-size:20px!important;font-weight:900}
+.team-identity small{font-size:14px!important;margin-top:8px}
+.panel>section.card{min-height:300px;padding:30px!important;border-left:6px solid var(--orange)!important;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;background:linear-gradient(140deg,#20252a,#1b1f24)!important;margin:0!important}
+.panel>section.card h2{font-size:clamp(26px,2.5vw,40px);margin:28px 0 12px;font-weight:900;letter-spacing:-.5px}
+.panel>section.card .muted{font-size:18px;max-width:850px;margin:0 0 22px}
+.panel>section.card .btn{margin-top:auto;padding:17px 26px!important;font-size:17px;background:var(--orange)!important;color:#111!important;border-color:#f59b50!important}
+.panel>section.card .tag{font-size:13px;padding:9px 15px;letter-spacing:1px}
+.panel>p{grid-column:1/-1}
+@media(max-width:900px){.hero .wrap{grid-template-columns:auto 1fr}.hero p{grid-column:2;margin-top:8px}.team-identity{min-height:110px}.team-identity img{width:72px!important;height:72px!important}.team-identity b{font-size:15px!important}.panel{grid-template-columns:1fr}}
+@media(max-width:560px){.hero{padding:20px 14px!important}.hero .wrap{column-gap:12px}.brand img{width:70px!important;height:70px!important}.hero h1{font-size:30px}.hero p{font-size:13px;padding-left:10px}.panel{padding:0 10px 24px!important}.team-strip{gap:8px}.team-identity{padding:8px!important;gap:7px}.team-identity img{width:48px!important;height:48px!important}.team-identity b{font-size:11px!important}.team-identity small{font-size:10px!important}.panel>section.card{padding:20px!important;min-height:250px}.panel>section.card h2{font-size:25px;margin-top:22px}.panel>section.card .muted{font-size:15px}.panel>section.card .btn{font-size:14px;padding:13px 16px!important}}
 </style></head><body><header class="hero"><div class="wrap"><div class="brand"><img src="assets/Olmeca_Liga.png" alt="Escudo Liga Olmeca" style="width:92px;height:92px;object-fit:contain;vertical-align:middle;margin-right:14px"> LIGA OLMECA · SÓFTBOL FEMENIL</div><h1>Portal de seguimiento U13</h1><p>Temporada 2026–2027</p></div></header><main class="panel"><div class="team-strip" aria-label="Equipos de Liga Olmeca U13">
 <div class="team-identity antilopes"><img src="assets/Antilopes.png" alt="Escudo Antílopes"><div><b>ANTÍLOPES</b><small>Liga Olmeca U13</small></div></div>
 <div class="team-identity gacelas"><img src="assets/Gacelas.png" alt="Escudo Gacelas"><div><b>GACELAS</b><small>Liga Olmeca U13</small></div></div>

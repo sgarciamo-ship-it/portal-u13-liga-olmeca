@@ -115,7 +115,7 @@ async function startSession(){
  const {data:{session}}=await sb.auth.getSession();
  if(session) await loadPrivateData();
 }
-async function loadPrivateData(){
+window.loadPrivateData=async function(){
  const {data:profile,error:pe}=await sb.from('profiles').select('role').eq('user_id',(await sb.auth.getUser()).data.user.id).single();
  if(pe || !profile || profile.role!=='admin'){await sb.auth.signOut();showError('Esta cuenta no tiene permisos de administrador.');return;}
  const {data,error}=await sb.from('private_payload').select('payload').eq('id',1).single();

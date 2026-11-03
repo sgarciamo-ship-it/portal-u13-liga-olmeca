@@ -60,7 +60,23 @@ header,.hero,.top{background:linear-gradient(115deg,#101214 0%,#20252A 70%,#713A
 .team-identity.antilopes{border-top:3px solid #268BD2}.team-identity.gacelas{border-top:3px solid #8B55B5}.team-identity.llamas{border-top:3px solid #B64A67}.team-identity.impalas{border-top:3px solid #C62D37}
 .team-mark{display:inline-flex;align-items:center;gap:7px;font-weight:800;white-space:nowrap}.team-mark img{width:30px;height:30px;object-fit:contain;vertical-align:middle}
 @media(max-width:700px){.team-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.team-identity{padding:8px}.team-identity img{width:42px;height:42px}.team-identity b{font-size:11px}}
-</style><style>#upcoming-games{display:grid;gap:8px}.upcoming-row{display:grid;grid-template-columns:56px 1fr 1fr 52px;gap:10px;align-items:center;padding:10px;border-bottom:1px solid #343A40}.upcoming-row .date{background:#713A12;color:#ffd0a1;border-radius:9px;text-align:center;padding:7px}.upcoming-row small{display:block;font-size:10px}.upcoming-row strong{text-align:center;color:#F28C28}.upcoming-row .time{text-align:right}@media(max-width:480px){.upcoming-row{grid-template-columns:48px 1fr 1fr 45px;gap:5px;font-size:12px}}</style></head><body>
+</style><style>#upcoming-games{display:grid;gap:8px}.upcoming-row{display:grid;grid-template-columns:56px 1fr 1fr 52px;gap:10px;align-items:center;padding:10px;border-bottom:1px solid #343A40}.upcoming-row .date{background:#713A12;color:#ffd0a1;border-radius:9px;text-align:center;padding:7px}.upcoming-row small{display:block;font-size:10px}.upcoming-row strong{text-align:center;color:#F28C28}.upcoming-row .time{text-align:right}@media(max-width:480px){.upcoming-row{grid-template-columns:48px 1fr 1fr 45px;gap:5px;font-size:12px}}</style><style>
+/* Upcoming games · logo matchup cards */
+#upcoming-games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.match-card{display:grid;grid-template-columns:64px 1fr;align-items:center;gap:12px;padding:14px;background:linear-gradient(145deg,#22282e,#191d21);border:1px solid #343a40;border-left:3px solid #f28c28;border-radius:13px}
+.match-date{background:#713a12;color:#ffd0a1;border-radius:9px;padding:8px 4px;text-align:center;font-weight:900;font-size:14px;line-height:1.1}
+.match-date small{display:block;font-size:10px;margin-top:4px}
+.match-body{min-width:0}.match-teams{display:grid;grid-template-columns:1fr 26px 1fr;align-items:center;gap:5px}
+.match-side{display:flex;align-items:center;gap:7px;min-width:0}.match-side:last-child{justify-content:flex-end;text-align:right}
+.match-side img{width:38px;height:38px;object-fit:contain;flex:0 0 auto}
+.match-side b{font-size:11px;line-height:1.2}
+.match-vs{text-align:center;color:#f28c28;font-size:11px;font-weight:900}
+.match-meta{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:7px;border-top:1px solid #343a40;color:#a7afb8;font-size:10px}
+.match-meta strong{color:#f5a34f;font-size:12px}
+#upcoming .calendar-cta{display:inline-flex;margin-top:14px;padding:9px 14px;border:1px solid #f28c28;border-radius:24px;text-decoration:none;color:#f5a34f;font-weight:800;font-size:13px}
+#upcoming .calendar-cta:hover{background:#f28c28;color:#171717}
+@media(max-width:700px){#upcoming-games{grid-template-columns:1fr}.match-card{padding:12px}.match-side img{width:34px;height:34px}}
+</style></head><body>
 <header><div class="wrap"><div class="brand">LIGA OLMECA · SÓFTBOL FEMENIL</div><a class="back-link" href="index.html">← Regresar al portal</a><h1>Tablero colectivo U13</h1><p>Temporada 2026–2027 · Información acumulada al 7 de noviembre de 2026</p></div></header>
 <main><div class="team-strip" aria-label="Equipos de Liga Olmeca U13">
 <div class="team-identity antilopes"><img src="assets/Antilopes.png" alt="Escudo Antílopes"><div><b>ANTÍLOPES</b><small>Liga Olmeca U13</small></div></div>
@@ -86,7 +102,7 @@ header,.hero,.top{background:linear-gradient(115deg,#101214 0%,#20252A 70%,#713A
 <section class="section">
 <h2>Incrementos entre cortes</h2><div class="scroll"><table id="deltas"></table></div>
 </section>
-<section class="section card" id="upcoming"><h2>▦ Próximos juegos · Campo 4</h2><div id="upcoming-games"></div><p><a href="calendario.html">Ver calendario completo →</a></p></section>
+<section class="section card" id="upcoming"><h2>▦ Próximos juegos · Campo 4</h2><div id="upcoming-games"></div><p><a class="calendar-cta" href="calendario.html">Ver calendario completo →</a></p></section>
 <section class="section note"><strong>Cómo leer este tablero.</strong> Los cortes del 10, 17 y 24 de octubre y 7 de noviembre son acumulados a cada fecha. No deben sumarse entre sí. Los incrementos de conteo se calculan restando acumulados consecutivos. AVG y PCL son tasas y no se restan. Este tablero contiene únicamente información colectiva; no incluye estadísticas ni nombres de jugadoras.</section>
 <footer>Fuente: archivos de resultados de Liga Olmeca Infantil Mayor correspondientes a los cuatro cortes indicados. Alcance: Antílopes, Gacelas, Impalas y Llamas. Se excluyen Intermedia y Leonas.</footer>
 </main>
@@ -119,5 +135,5 @@ document.getElementById('team').addEventListener('change',render);render();
 </script><script>
 const upcoming=[["2026-11-07","07","SÁB","08:00","Antílopes","Impalas"],["2026-11-07","07","SÁB","10:00","Llamas","Gacelas"],["2026-11-08","08","DOM","08:00","Gacelas","Llamas"],["2026-11-08","08","DOM","10:00","Impalas","Antílopes"],["2026-11-21","21","SÁB","12:00","Antílopes","Llamas"],["2026-11-21","21","SÁB","14:00","Impalas","Gacelas"],["2026-11-22","22","DOM","12:00","Gacelas","Impalas"],["2026-11-22","22","DOM","14:00","Llamas","Antílopes"]];
 const now=new Date();now.setHours(0,0,0,0);const games=upcoming.filter(g=>new Date(g[0]+"T00:00:00")>=now).slice(0,4);
-document.getElementById("upcoming-games").innerHTML=games.length?games.map(g=>'<div class="upcoming-row"><b class="date">'+g[1]+'<small>'+g[2]+'</small></b><span>'+g[4]+'</span><strong>VS<br>'+g[5]+'</strong><b class="time">'+g[3]+'</b></div>').join(''):'<p class="hint">No hay próximos juegos en el corte disponible.</p>';
+const logos={"Antílopes":"assets/Antilopes.png","Gacelas":"assets/Gacelas.png","Llamas":"assets/Llamas.png","Impalas":"assets/Impalas.png"};document.getElementById("upcoming-games").innerHTML=games.length?games.map(g=>'<article class="match-card"><div class="match-date">'+g[1]+'<small>'+g[2]+'</small></div><div class="match-body"><div class="match-teams"><div class="match-side"><img src="'+logos[g[4]]+'" alt=""><b>'+g[4]+'</b></div><span class="match-vs">VS</span><div class="match-side"><img src="'+logos[g[5]]+'" alt=""><b>'+g[5]+'</b></div></div><div class="match-meta"><span>CAMPO 4 · U13</span><strong>'+g[3]+'</strong></div></div></article>').join(''):'<p class="hint">No hay próximos juegos en el corte disponible.</p>';
 </script></body></html>

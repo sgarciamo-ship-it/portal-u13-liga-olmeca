@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Expediente Deportivo | Liga Olmeca U13</title>
+<style>
+:root{--o:#f28c28;--b:#171717;--bg:#f3f4f6;--line:#e6e7e9;--muted:#777}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:#242424}
+header{background:var(--b);color:#fff;padding:15px 4vw;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900}.logo{width:38px;height:38px;border-radius:10px;background:var(--o);display:grid;place-items:center;color:#171717;font-size:20px}
+header small{color:#bbb;font-weight:500}main{max-width:1180px;margin:26px auto;padding:0 20px 55px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.eyebrow{color:#a85a0c;font-weight:800;letter-spacing:1.5px;font-size:11px;text-transform:uppercase}
+h1{font-size:28px;margin:5px 0}h2{font-size:18px;margin:0 0 14px}h3{font-size:15px;margin:0 0 10px}
+.muted{color:var(--muted);font-size:13px}.pill{display:inline-block;border-radius:20px;padding:6px 10px;background:#fff0df;color:#8d4c0c;font-size:11px;font-weight:800}
+.profile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;grid-template-columns:100px 1fr auto;gap:20px;align-items:center}
+.avatar{width:92px;height:92px;border-radius:18px;background:#fff0df;border:1px solid #ffd9b3;display:grid;place-items:center;font-size:36px;color:#a85a0c;font-weight:900}
+.name{font-size:25px;font-weight:900;margin-bottom:5px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.meta span{background:#f5f5f5;border-radius:7px;padding:6px 9px;font-size:12px;color:#555}
+button{cursor:pointer;border:0;border-radius:8px;padding:10px 13px;font-weight:800}.primary{background:var(--o);color:#171717}.secondary{background:#eee;color:#333}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}.tabs button{background:#fff;border:1px solid var(--line);color:#555}.tabs button.active{background:#242424;color:#fff;border-color:#242424}
+.panel{display:none}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px}.kpi .label{font-size:12px;color:#777}.kpi .value{font-size:27px;font-weight:900;margin:6px 0}.kpi .hint{font-size:11px;color:#888}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}.table{width:100%;border-collapse:collapse;font-size:13px}.table th{text-align:left;color:#777;background:#fafafa;font-size:11px;text-transform:uppercase}.table td,.table th{padding:11px 9px;border-bottom:1px solid var(--line)}.table tr:last-child td{border:0}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.cut{border:1px solid var(--line);border-radius:10px;padding:13px;background:#fff}.cut b{display:block;font-size:20px;margin:7px 0}.bar{height:7px;background:#eee;border-radius:9px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;background:var(--o)}
+.callout{background:#fff7ed;border:1px solid #ffdfbd;border-radius:10px;padding:12px;color:#70400f;font-size:12px;line-height:1.5;margin-top:14px}
+footer{text-align:center;color:#888;font-size:11px;padding:20px}
+@media(max-width:760px){.profile{grid-template-columns:70px 1fr}.avatar{width:66px;height:66px;font-size:27px}.profile>button{grid-column:1/-1}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.timeline{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<header><div class="brand"><div class="logo">O</div><div>LIGA OLMECA <small> · U13</small></div></div><span class="pill">EXPEDIENTE DEPORTIVO</span></header>
+<main>
+<div class="top"><div><div class="eyebrow">Temporada 2026–2027</div><h1>Ficha de jugadora</h1><div class="muted">Ejemplo de cómo se consultará el historial deportivo dentro del área privada.</div></div><button class="secondary" onclick="alert('En la plataforma final, esta acción regresará al listado de jugadoras.')">← Volver al roster</button></div>
+<section class="profile">
+ <div class="avatar">FB</div>
+ <div><div class="eyebrow">Antílopes · U13</div><div class="name">Fernanda Bustos</div><div class="muted">Expediente deportivo · ID interno ilustrativo pendiente de asignación</div><div class="meta"><span>Temporada: 2026–2027</span><span>Equipo: Antílopes</span><span>Participación: 7 JJ</span></div></div>
+ <button class="primary" onclick="alert('La edición de datos personales será exclusiva de usuarios autorizados.')">Editar ficha</button>
+</section>
+<div class="tabs" id="tabs"><button class="active" data-tab="resumen">Resumen</button><button data-tab="bateo">Bateo</button><button data-tab="pitcheo">Pitcheo</button><button data-tab="fildeo">Fildeo</button><button data-tab="trayectoria">Trayectoria y evolución</button></div>
+<section class="panel active" id="resumen">
+ <div class="grid">
+  <div class="card kpi"><div class="label">AVG oficial</div><div class="value">.467</div><div class="hint">15 hits / 20 AB · fuente 7 nov.</div></div>
+  <div class="card kpi"><div class="label">Home runs</div><div class="value">1</div><div class="hint">Acumulado de temporada</div></div>
+  <div class="card kpi"><div class="label">Carreras impulsadas</div><div class="value">5</div><div class="hint">Acumulado de temporada</div></div>
+  <div class="card kpi"><div class="label">Carreras anotadas</div><div class="value">6</div><div class="hint">Acumulado de temporada</div></div>
+ </div>
+ <div class="two"><div class="card"><h2>Resumen ofensivo</h2><table class="table"><tbody><tr><td>Juegos jugados</td><td><b>7</b></td></tr><tr><td>Turnos al bate</td><td><b>20</b></td></tr><tr><td>Hits</td><td><b>7</b></td></tr><tr><td>Dobles / Triples</td><td><b>— / —</b></td></tr><tr><td>Bases por bolas</td><td><b>4</b></td></tr><tr><td>Ponches</td><td><b>2</b></td></tr></tbody></table></div>
+ <div class="card"><h2>Resumen defensivo</h2><table class="table"><tbody><tr><td>Outs</td><td><b>4</b></td></tr><tr><td>Asistencias</td><td><b>6</b></td></tr><tr><td>Errores</td><td><b>—</b></td></tr><tr><td>% Fildeo reportado</td><td><b>1.000</b></td></tr></tbody></table><div class="callout">Los guiones indican que el dato no está disponible en el registro fuente; no se interpretan como cero.</div></div></div>
+</section>
+<section class="panel" id="bateo"><div class="card"><h2>Estadísticas de bateo</h2><p class="muted">Acumulado oficial al 7 de noviembre de 2026.</p><table class="table"><thead><tr><th>JJ</th><th>AB</th><th>V</th><th>H</th><th>HR</th><th>R</th><th>CP</th><th>SO</th><th>BB</th><th>AVG</th></tr></thead><tbody><tr><td>7</td><td>20</td><td>15</td><td>7</td><td>1</td><td>6</td><td>5</td><td>2</td><td>4</td><td><b>.467</b></td></tr></tbody></table><div class="callout">El AVG se presenta a tres decimales y se conserva el valor reportado por la fuente oficial. La ficha completa podrá mostrar también OBP y SLUG cuando se definan como campos disponibles.</div></div></section>
+<section class="panel" id="pitcheo"><div class="card"><h2>Registro de pitcheo</h2><p class="muted">La fuente registra a Fernanda Bustos como pitcher en el corte del 7 de noviembre.</p><table class="table"><thead><tr><th>JL</th><th>IP</th><th>H</th><th>C</th><th>CL</th><th>SO</th><th>BB</th><th>W</th><th>PCL</th><th>WHIP</th></tr></thead><tbody><tr><td>1</td><td>3</td><td>1</td><td>2</td><td>1</td><td>5</td><td>4</td><td>1</td><td>1.33</td><td>1.67</td></tr></tbody></table><div class="callout">Se muestran las cifras exactamente según los campos disponibles en el dashboard fuente. No se agregan métricas que no estén reportadas.</div></div></section>
+<section class="panel" id="fildeo"><div class="grid"><div class="card kpi"><div class="label">Outs</div><div class="value">4</div></div><div class="card kpi"><div class="label">Asistencias</div><div class="value">6</div></div><div class="card kpi"><div class="label">Errores</div><div class="value">—</div></div><div class="card kpi"><div class="label">% Fildeo reportado</div><div class="value">1.000</div></div></div><div class="callout">La posición defensiva no está identificada en el registro consultado. Podrá incorporarse cuando se capture oficialmente.</div></section>
+<section class="panel" id="trayectoria"><div class="card"><h2>Evolución del AVG por corte</h2><p class="muted">Antílopes · Temporada 2026–2027 · datos acumulados, no se suman entre cortes.</p><div class="timeline">
+ <div class="cut"><span class="muted">10 oct 2026</span><b>.000</b><span class="muted">2 AB · 0 H</span><div class="bar"><i style="width:0%"></i></div></div>
+ <div class="cut"><span class="muted">17 oct 2026</span><b>.500</b><span class="muted">7 AB · 3 H</span><div class="bar"><i style="width:50%"></i></div></div>
+ <div class="cut"><span class="muted">24 oct 2026</span><b>.545</b><span class="muted">13 AB · 6 H</span><div class="bar"><i style="width:54.5%"></i></div></div>
+ <div class="cut"><span class="muted">7 nov 2026</span><b>.467</b><span class="muted">20 AB · 7 H</span><div class="bar"><i style="width:46.7%"></i></div></div>
+ </div><div class="callout">Cada punto es el acumulado publicado en esa fecha. La variación refleja los nuevos registros incorporados entre cortes, no una suma de estadísticas semanales.</div></div>
+ <div class="card" style="margin-top:14px"><h2>Historial de equipos y temporadas</h2><table class="table"><thead><tr><th>Temporada</th><th>Categoría</th><th>Equipo</th><th>Estado</th></tr></thead><tbody><tr><td>2026–2027</td><td>U13</td><td>Antílopes</td><td><span class="pill">Actual</span></td></tr></tbody></table><p class="muted">Solo se muestra la asignación acreditada en el corte utilizado. Temporadas anteriores o posteriores se agregarán cuando existan registros.</p></div>
+</section>
+<div class="callout"><b>Nota de privacidad:</b> esta demostración utiliza estadísticas reales del dashboard oficial de U13 al 7 de noviembre de 2026. No incluye fecha de nacimiento, fotografía, teléfono, datos familiares ni observaciones privadas porque no están en la fuente. En la plataforma real, la ficha completa estará protegida por permisos de usuario.</div>
+</main><footer>PORTAL LIGA OLMECA · Ficha conceptual · No conectada a base de datos</footer>
+<script>
+document.querySelectorAll('#tabs button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active')}));
+</script></body></html>

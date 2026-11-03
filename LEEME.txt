@@ -1,27 +1,24 @@
-PAQUETE PARA GITHUB PAGES — PORTAL U13 LIGA OLMECA\n\nIncluye únicamente archivos HTML del sitio y la pantalla de acceso. NO incluye SQL ni datos privados JSON.\nSube estos tres archivos a la raíz del repositorio GitHub Pages, reemplazando index.html y dashboard-publico.html existentes y agregando admin.html.\nLa información individual permanece en Supabase y solo se entrega a usuarios autenticados con rol admin mediante RLS.\nLa clave incluida en admin.html es Publishable (pública), nunca uses una Secret/service_role en navegador.\nAntes de usar, confirma en Supabase Auth que el usuario tenga acceso admin y que el SQL inicial se ejecutó.\n
+PORTAL U13 LIGA OLMECA — VERSIÓN PÚBLICA COLECTIVA
 
-PORTAL U13 LIGA OLMECA · V3.6 CONSOLIDADA
-Temporada: 2026–2027
+ARCHIVOS
+- index.html: portada del portal.
+- dashboard-publico.html: tablero colectivo actualizado al 07NOV26.
 
-Esta entrega integra:
-- Inicio renovado (V3.5): accesos principales, contexto de temporada y diseño responsivo.
-- Equipos (V3.4): escudos y tarjetas visuales con selección/filtro de equipo en tablero público.
-- Posiciones (V3.3): jerarquía visual de tabla de posiciones; no altera resultados.
-- Calendario (V3.2): fechas corregidas para temporada 2026–2027; jornadas en sábado/domingo.
-- Ajustes previos de navegación y accesibilidad.
+SEGURIDAD Y PRIVACIDAD
+- El paquete contiene únicamente datos colectivos de los cuatro equipos U13.
+- No contiene nombres ni estadísticas individuales de menores.
+- La sección privada es informativa; NO tiene autenticación ni autorización.
+- No subir fichas individuales, roster con datos personales ni expedientes a GitHub Pages.
 
-Validación técnica realizada:
-- Archivos HTML presentes: index.html, dashboard-publico.html, calendario.html, admin.html.
-- Enlaces principales del inicio apuntan a archivos incluidos.
-- JavaScript inline revisado sintácticamente (Node.js --check).
-- Fechas del calendario verificadas: 24 fechas únicas entre 03-oct-2026 y 07-feb-2027, todas sábado/domingo.
-- No se alteraron los registros de partidos, estadísticas ni posiciones en esta etapa de consolidación.
+PUBLICACIÓN
+1. Descomprime el paquete.
+2. Sube index.html y dashboard-publico.html a la raíz del repositorio público.
+3. Conserva ambos archivos en la misma carpeta.
+4. Activa GitHub Pages desde Settings > Pages, si aún no está activo.
+5. Abre la URL publicada del repositorio.
 
-PUBLICACIÓN:
-1. Descarga y descomprime este ZIP.
-2. En GitHub, abre el repositorio portal-u13-liga-olmeca.
-3. Sube/reemplaza los archivos y la carpeta assets conservando esta estructura.
-4. Confirma el commit y espera a GitHub Pages.
-5. Revisa Inicio, Tablero público, Calendario y Admin.
+IMPORTANTE
+Los cortes 10OCT26, 17OCT26, 24OCT26 y 07NOV26 son acumulados. No sumarlos entre sí. Los incrementos son diferencias entre cortes consecutivos para métricas de conteo. Los promedios y tasas no se restan.
 
-Importante: esta entrega está preparada localmente; no se ha publicado automáticamente en GitHub.
+ALCANCE
+Liga Olmeca U13: Antílopes, Gacelas, Impalas y Llamas. Excluye Intermedia y Leonas.

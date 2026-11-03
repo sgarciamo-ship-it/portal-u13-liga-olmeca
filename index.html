@@ -20,10 +20,13 @@ h2{font-size:clamp(24px,3vw,34px);margin:18px 0 8px;letter-spacing:-.7px}.desc{c
 footer{color:#818b96;text-align:center;padding:20px;font-size:13px}
 @media(max-width:850px){.teams{grid-template-columns:repeat(2,1fr)}.head{align-items:flex-start}.season{font-size:14px}}
 @media(max-width:560px){header{padding:8px}.brand img{width:76px;height:76px}.brandline{font-size:25px}.season{display:none}main{padding:0 14px 30px;margin:18px auto}.teams{gap:8px}.team{padding:8px;gap:8px}.team img{width:64px;height:64px;object-fit:cover;transform:none}.team strong{font-size:12px}.team small{font-size:10px}.cards{grid-template-columns:1fr}.card{padding:20px;min-height:220px}}
-/* LOGOS: tamaño visual corregido */
-.team img{width:220px!important;height:220px!important;max-width:none!important;object-fit:contain!important;transform:none!important;margin:-42px -66px -42px -52px!important;mix-blend-mode:screen!important;position:relative;z-index:1}
-.team>div{position:relative;z-index:2;flex-shrink:0}
-@media(max-width:560px){.team img{width:145px!important;height:145px!important;margin:-28px -42px -28px -34px!important}}
+/* LOGOS: ajuste final, escudo contenido y texto legible */
+.team{min-height:132px!important;gap:12px!important;padding:10px 14px!important}
+.team img{width:112px!important;height:112px!important;max-width:112px!important;object-fit:contain!important;margin:0!important;transform:none!important;mix-blend-mode:normal!important;position:relative;z-index:1;flex:0 0 112px!important}
+.team>div{position:relative;z-index:2;flex:1 1 auto!important;min-width:0}
+.team strong{font-size:18px!important;white-space:nowrap}
+.team small{font-size:13px!important}
+@media(max-width:560px){.team{min-height:100px!important;padding:7px!important;gap:6px!important}.team img{width:68px!important;height:68px!important;max-width:68px!important;flex-basis:68px!important}.team strong{font-size:12px!important}.team small{font-size:10px!important}}
 </style></head>
 <body>
 <header><div class="head"><div class="brand"><img src="assets/Olmeca_Liga.png" alt="Logo Liga Olmeca"><div class="brandline">LIGA OLMECA<br><span>SOFTBALL</span> U13</div></div><div class="season"><b>TEMPORADA</b> 2026–2027</div></div></header>

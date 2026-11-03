@@ -113,8 +113,7 @@ async function startSession(){
  if(!window.supabase || SUPABASE_URL.startsWith('PEGA_') || SUPABASE_ANON_KEY.startsWith('PEGA_')){showError('Falta conectar el proyecto Supabase. Consulta INICIO_RAPIDO.txt.');return;}
  sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
  const {data:{session}}=await sb.auth.getSession();
- if(session) await window.loadPrivateData();
-}
+ if(session) await }
 window.loadPrivateData=async function(){
  const {data:profile,error:pe}=await sb.from('profiles').select('role').eq('user_id',(await sb.auth.getUser()).data.user.id).single();
  if(pe || !profile || profile.role!=='admin'){await sb.auth.signOut();showError('Esta cuenta no tiene permisos de administrador.');return;}
@@ -131,7 +130,7 @@ $auth('loginBtn').addEventListener('click',async()=>{
   showError('Conectando con Supabase…');
   const {data,error}=await sb.auth.signInWithPassword({email:$auth('email').value.trim(),password:$auth('password').value});
   if(error){showError('Error de acceso: '+error.message);return;}
-  showError('Acceso validado. Cargando expediente…');await loadPrivateData();
+  showError('Acceso validado. Cargando expediente…');await window.loadPrivateData();
  }catch(e){showError('Error de conexión: '+(e?.message||e));}
  finally{btn.disabled=false;btn.textContent='Entrar';}
 });

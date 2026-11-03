@@ -1,0 +1,11 @@
+PORTAL U13 LIGA OLMECA — SISTEMA VISUAL
+
+Se incorporó una capa visual común a las páginas públicas:
+- negro profundo como fondo
+- paneles carbón y bordes discretos
+- naranja Liga Olmeca para acciones y métricas
+- texto claro y tablas con contraste
+- adaptación básica en móvil
+
+La capa se agrega al final del CSS de cada página para preservar estructura y funcionalidad.
+No publicar la carpeta private en GitHub Pages.

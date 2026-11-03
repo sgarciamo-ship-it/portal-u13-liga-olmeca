@@ -44,6 +44,19 @@ header,.hero,.top{background:linear-gradient(115deg,#101214 0%,#20252A 70%,#713A
 #playerDetail table{background:#20252A!important;color:#F3F4F6!important}
 #playerDetail th{background:#30363D!important;color:#fff!important}
 #playerDetail td{color:#E5E7EB!important;border-color:#3A424A!important}
+
+/* Login: corrección de contraste, sin tocar autenticación */
+#login{color:#F3F4F6!important}
+#login .auth-card{background:#20252A!important;color:#F3F4F6!important;border:1px solid #3A424A!important;box-shadow:0 18px 50px #0008!important}
+#login .auth-card small{color:#FFAD62!important}
+#login .auth-card h1{color:#FFFFFF!important}
+#login .auth-card p{color:#B8C0C8!important}
+#login .auth-card label{display:block;color:#E5E7EB!important}
+#login .auth-card input{background:#171B1F!important;color:#F3F4F6!important;border:1px solid #454D56!important}
+#login .auth-card input::placeholder{color:#8B95A2!important}
+#login .auth-card button{background:#F28C28!important;color:#111315!important;border:1px solid #F6A34F!important}
+#login .auth-card button:hover{background:#FFAD62!important}
+#login .auth-card .auth-error{color:#FF8B8B!important}
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body>
 <div id="login" class="auth-wrap"><div class="auth-card"><small>LIGA OLMECA · ACCESO RESTRINGIDO</small><h1>Administración U13</h1><p>Ingresa con tu cuenta autorizada para consultar expedientes y estadísticas individuales.</p><label>Correo electrónico</label><input id="email" type="email" autocomplete="username" placeholder="correo@dominio.com"><label>Contraseña</label><input id="password" type="password" autocomplete="current-password" placeholder="Contraseña"><button id="loginBtn">Entrar</button><p id="authError" class="auth-error"></p></div></div>
 <div id="app" class="hidden"><header class="top"><small>LIGA OLMECA · TEMPORADA 2026–2027</small><h1>Panel privado de seguimiento U13</h1><div style="color:#ddd">Administración deportiva · corte estadístico 07 noviembre 2026</div></header><main class="wrap"><div class="team-strip" aria-label="Equipos de Liga Olmeca U13">

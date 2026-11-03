@@ -1,1 +1,17 @@
-PAQUETE PARA GITHUB PAGES — PORTAL U13 LIGA OLMECA\n\nIncluye únicamente archivos HTML del sitio y la pantalla de acceso. NO incluye SQL ni datos privados JSON.\nSube estos tres archivos a la raíz del repositorio GitHub Pages, reemplazando index.html y dashboard-publico.html existentes y agregando admin.html.\nLa información individual permanece en Supabase y solo se entrega a usuarios autenticados con rol admin mediante RLS.\nLa clave incluida en admin.html es Publishable (pública), nunca uses una Secret/service_role en navegador.\nAntes de usar, confirma en Supabase Auth que el usuario tenga acceso admin y que el SQL inicial se ejecutó.\n
+PORTAL LIGA OLMECA U13 — ACTUALIZACIÓN DE LOGOS
+
+Contenido:
+assets/
+  Antilopes.png
+  Gacelas.png
+  Llamas.png
+  Impalas.png
+  Olmeca_Liga.png
+
+Cómo cargar:
+1. En GitHub abre el repositorio portal-u13-liga-olmeca.
+2. Entra a la carpeta assets.
+3. Sube/reemplaza los cinco archivos conservando exactamente estos nombres.
+4. Confirma el commit en la rama main.
+
+Los cuatro escudos de equipo están recortados para eliminar el margen negro exterior y permitir que se vean más grandes en las tarjetas.

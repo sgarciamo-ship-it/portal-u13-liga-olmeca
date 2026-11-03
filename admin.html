@@ -124,9 +124,15 @@ async function loadPrivateData(){
  initPanel(data.payload);
 }
 $auth('loginBtn').addEventListener('click',async()=>{
- showError(''); if(!sb){if(!window.supabase || SUPABASE_URL.startsWith('PEGA_') || SUPABASE_ANON_KEY.startsWith('PEGA_')){showError('Primero configura Supabase siguiendo INICIO_RAPIDO.txt.');return;} sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}
- const {error}=await sb.auth.signInWithPassword({email:$auth('email').value,password:$auth('password').value});
- if(error){showError('No se pudo iniciar sesión. Revisa correo y contraseña.');return;} await loadPrivateData();
+ const btn=$auth('loginBtn');btn.disabled=true;btn.textContent='Validando…';showError('Conectando con Supabase…');
+ try{
+  if(!window.supabase){throw new Error('No cargó la biblioteca Supabase. Verifica conexión o bloqueador.');}
+  if(!sb) sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+  const {data,error}=await sb.auth.signInWithPassword({email:$auth('email').value.trim(),password:$auth('password').value});
+  if(error) throw new Error(error.message);
+  showError('Credenciales correctas. Validando permisos…');
+  await loadPrivateData();
+ }catch(e){showError('Error de acceso: '+(e?.message||String(e)));}finally{btn.disabled=false;btn.textContent='Entrar';}
 });
 $auth('logoutBtn').addEventListener('click',async()=>{if(sb) await sb.auth.signOut();location.reload();});
 startSession();

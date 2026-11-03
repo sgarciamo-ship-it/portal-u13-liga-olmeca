@@ -147,7 +147,8 @@ $('histMetric').onchange=$('histTeam').onchange=historyRender;function historyRe
 // Catálogo maestro: usa exclusivamente el padrón cargado en Supabase (no datos personales embebidos en GitHub).
 function renderMasterRoster(){
  const q=$('rosterSearch').value.trim().toLocaleLowerCase('es-MX'),t=$('rosterTeamFilter').value;
- const rows=(D.roster||[]).filter(p=>(t==='Todos'||p['Equipo 2026–2027']===t)&&String(p['Nombre oficial roster']||'').toLocaleLowerCase('es-MX').includes(q)).sort((a,b)=>String(a['Nombre oficial roster']||'').localeCompare(String(b['Nombre oficial roster']||''),'es',{sensitivity:'base'}));
+ const normalizeName=p=>String(p['Nombre oficial roster']||'').trim().replace(/\\s+/g,' ');
+ const rows=(D.roster||[]).filter(p=>(t==='Todos'||p['Equipo 2026–2027']===t)&&normalizeName(p).toLocaleLowerCase('es-MX').includes(q)).sort((a,b)=>normalizeName(a).localeCompare(normalizeName(b),'es-MX',{sensitivity:'base',numeric:true}));
  $('rosterKpis').innerHTML=['Antílopes','Gacelas','Impalas','Llamas'].map(team=>'<div class="card kpi"><small>'+team+'</small><strong>'+((D.roster||[]).filter(x=>x['Equipo 2026–2027']===team).length)+'</strong></div>').join('');
  $('masterRosterTable').innerHTML=table(['#','Equipo','Nombre completo','Nombre deportivo','Jersey'],rows.map((p,i)=>[i+1,'<span class="team">'+p['Equipo 2026–2027']+'</span>',p['Nombre oficial roster'],p['Nombre deportivo']||'—',p.Jersey??'—']));
 }

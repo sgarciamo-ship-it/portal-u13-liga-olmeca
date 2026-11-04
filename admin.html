@@ -121,10 +121,10 @@ let sb = null;
 const $auth = (id)=>document.getElementById(id);
 function showError(msg){$auth('authError').textContent=msg;}
 async function startSession(){
+ // Login obligatorio al abrir el panel; no mostrar contenido por sesión restaurada.
+ $auth('login').classList.remove('hidden');$auth('app').classList.add('hidden');
  if(!window.supabase || SUPABASE_URL.startsWith('PEGA_') || SUPABASE_ANON_KEY.startsWith('PEGA_')){showError('Falta conectar el proyecto Supabase. Consulta INICIO_RAPIDO.txt.');return;}
- sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
- const {data:{session}}=await sb.auth.getSession();
- if(session) await loadPrivateData();
+ sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
 }
 async function loadPrivateData(){
  const {data:profile,error:pe}=await sb.from('profiles').select('role').eq('user_id',(await sb.auth.getUser()).data.user.id).single();

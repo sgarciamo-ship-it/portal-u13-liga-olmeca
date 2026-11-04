@@ -64,7 +64,7 @@ header,.hero,.top{background:linear-gradient(115deg,#101214 0%,#20252A 70%,#713A
 #rosters>p.muted{color:#A7AFB8!important;margin:0 0 16px!important}
 #rosters .grid{background:transparent!important}
 #rosters .card{background:#20252A!important;color:#F3F4F6!important;border:1px solid #343A40!important;box-shadow:0 6px 18px #0004!important}
-#rosters .kpi small{color:#A7AFB8!important}
+ $('masterRosterTable').innerHTML=table(['#','Equipo','Nombre completo','Nombre deportivo','Jersey','Nacimiento','Año','Edad'],rows.map((p,i)=>{const dob=p['Fecha nacimiento']||p['Fecha de nacimiento']||p.fecha_nacimiento||p.dob||null;const date=dob?new Date(String(dob).length===10?String(dob)+'T00:00:00':dob):null;const birthYear=date&&!Number.isNaN(date.getTime())?date.getFullYear():'—';const birthDate=date&&!Number.isNaN(date.getTime())?date.toLocaleDateString('es-MX'):'—';return [i+1,'<span class="team">'+p['Equipo 2026–2027']+'</span>',p['Nombre oficial roster'],p['Nombre deportivo']||'—',p.Jersey??'—',birthDate,birthYear,ageOnToday(dob)];}));
 #rosters .kpi strong{color:#F8FAFC!important}
 #rosters .filters{background:transparent!important;margin:14px 0!important}
 #rosters .filters input,#rosters .filters select{background:#171B1F!important;color:#F3F4F6!important;border:1px solid #454D56!important}

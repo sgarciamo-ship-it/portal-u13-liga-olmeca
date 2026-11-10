@@ -127,12 +127,20 @@ async function startSession(){
  sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
 }
 async function loadPrivateData(){
- const {data:profile,error:pe}=await sb.from('profiles').select('role').eq('user_id',(await sb.auth.getUser()).data.user.id).single();
- if(pe || !profile || profile.role!=='admin'){await sb.auth.signOut();showError('Esta cuenta no tiene permisos de administrador.');return;}
- const {data,error}=await sb.from('private_payload').select('payload').eq('id',1).single();
- if(error || !data){showError('No se pudo cargar la base privada. Revisa la configuración de Supabase.');return;}
- $auth('login').classList.add('hidden');$auth('app').classList.remove('hidden');
- try{initPanel(data.payload);}catch(e){console.error('Error al inicializar panel privado:',e);$auth('app').classList.add('hidden');$auth('login').classList.remove('hidden');showError('El acceso fue validado, pero el panel no pudo cargar. Error: '+(e?.message||e));}
+ try{
+  const {data:userData,error:userError}=await sb.auth.getUser();
+  if(userError||!userData?.user){showError('La sesión no pudo validarse. Inicia sesión nuevamente.');return;}
+  const {data:profile,error:pe}=await sb.from('profiles').select('role').eq('user_id',userData.user.id).single();
+  if(pe || !profile || profile.role!=='admin'){await sb.auth.signOut();showError('Esta cuenta no tiene permisos de administrador.');return;}
+  const {data,error}=await sb.from('private_payload').select('payload').eq('id',1).single();
+  if(error || !data){showError('No se pudo cargar la base privada: '+(error?.message||'sin datos'));return;}
+  $auth('login').classList.add('hidden');$auth('app').classList.remove('hidden');
+  initPanel(data.payload);
+ }catch(e){
+  console.error('Error al cargar panel privado:',e);
+  $auth('app').classList.add('hidden');$auth('login').classList.remove('hidden');
+  showError('Error al cargar el panel: '+(e?.message||String(e)));
+ }
 }
 $auth('loginBtn').addEventListener('click',async()=>{
  showError(''); if(!sb){if(!window.supabase || SUPABASE_URL.startsWith('PEGA_') || SUPABASE_ANON_KEY.startsWith('PEGA_')){showError('Primero configura Supabase siguiendo INICIO_RAPIDO.txt.');return;} sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}

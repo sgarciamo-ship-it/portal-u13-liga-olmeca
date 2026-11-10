@@ -194,7 +194,7 @@ function renderMasterRoster(){
  const q=$('rosterSearch').value.trim().toLocaleLowerCase('es-MX'),t=$('rosterTeamFilter').value;
  const normalizeName=p=>String(p['Nombre oficial roster']||'').trim().replace(/\\s+/g,' ');
  const rows=(D.roster||[]).filter(p=>(t==='Todos'||p['Equipo 2026–2027']===t)&&normalizeName(p).toLocaleLowerCase('es-MX').includes(q)).sort((a,b)=>normalizeName(a).localeCompare(normalizeName(b),'es-MX',{sensitivity:'base',numeric:true}));
- $('rosterKpis').innerHTML=['Antílopes','Gacelas','Impalas','Llamas'].map(team=>'<div class="card kpi"><small>'+team+'</small><strong>'+((D.roster||[]).filter(x=>x['Equipo 2026–2027']===team).length)+'</strong></div>').join('');
+ $('rosterKpis').innerHTML=['Antílopes','Gacelas','Impalas','Llamas'].map(team=>`<div class="card kpi"><small>${team}</small><strong>${(D.roster||[]).filter(x=>x['Equipo 2026–2027']===team).length}</strong></div>`).join('');
  const ageOnToday=dob=>{if(!dob)return '—';const d=new Date(String(dob).length===10?String(dob)+'T00:00:00':dob);if(Number.isNaN(d.getTime()))return '—';const today=new Date();let age=today.getFullYear()-d.getFullYear();if(today.getMonth()<d.getMonth()||(today.getMonth()===d.getMonth()&&today.getDate()<d.getDate()))age--;return age>=0?age+' años':'—';};
  $('masterRosterTable').innerHTML=table(
   ['#','Equipo','Nombre completo','Nombre deportivo','Jersey','Nacimiento','Año','Edad'],

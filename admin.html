@@ -132,7 +132,7 @@ async function loadPrivateData(){
  const {data,error}=await sb.from('private_payload').select('payload').eq('id',1).single();
  if(error || !data){showError('No se pudo cargar la base privada. Revisa la configuración de Supabase.');return;}
  $auth('login').classList.add('hidden');$auth('app').classList.remove('hidden');
- initPanel(data.payload);
+ try{initPanel(data.payload);}catch(e){console.error('Error al inicializar panel privado:',e);$auth('app').classList.add('hidden');$auth('login').classList.remove('hidden');showError('El acceso fue validado, pero el panel no pudo cargar. Error: '+(e?.message||e));}
 }
 $auth('loginBtn').addEventListener('click',async()=>{
  showError(''); if(!sb){if(!window.supabase || SUPABASE_URL.startsWith('PEGA_') || SUPABASE_ANON_KEY.startsWith('PEGA_')){showError('Primero configura Supabase siguiendo INICIO_RAPIDO.txt.');return;} sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}
@@ -142,7 +142,7 @@ $auth('loginBtn').addEventListener('click',async()=>{
 $auth('logoutBtn').addEventListener('click',async()=>{if(sb) await sb.auth.signOut();location.reload();});
 startSession();
 function initPanel(D){
-
+D=D||{};D.roster=Array.isArray(D.roster)?D.roster:[];D.latest=Array.isArray(D.latest)?D.latest:[];D.hist=D.hist||{};['bateo','pitcheo','fildeo'].forEach(k=>{if(!Array.isArray(D.hist[k]))D.hist[k]=[]});
 const teams=['Antílopes','Gacelas','Impalas','Llamas'];const pos=[['Antílopes',7,4,2,1,'.667','0'],['Impalas',7,3,2,2,'.600','0.5'],['Gacelas',7,3,4,'—','.429','1.5'],['Llamas',7,2,4,1,'.333','2']];const $=id=>document.getElementById(id);const fmt=(v,k='')=>{if(v===null||v===undefined||v==='')return '—';if(typeof v!=='number')return v;if(['%BATEO','%EN BASE','%FILDEO','AVG','OBP','SLUG'].includes(k)){const n=v.toFixed(3);return n.startsWith('0.')?n.slice(1):n;}return Number.isInteger(v)?v:v.toFixed(2)};function tab(id){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));if(id==='evolucion')drawAB();if(id==='inicio')requestAnimationFrame(()=>drawHomeCharts())}document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
 const teamAgg={};D.latest.filter(x=>x.Disciplina==='Bateo').forEach(x=>{let t=x['Equipo actual'];let a=teamAgg[t]??={AB:0,H:0,C:0,CP:0,JJ:0};a.AB+=Number(x.AB||0);a.H+=Number(x.HT||0);a.C+=Number(x.C||0);a.CP+=Number(x.CP||0);a.JJ+=Number(x.JJ||0)});const metrics={'Antílopes':{AB:168,H:29,C:42,CP:25,AVG:'.236',IP:'34.00',HRA:170,BB:41,SO:55,PCL:'2.94',O:100},'Gacelas':{AB:179,H:22,C:42,CP:22,AVG:'.182',IP:'30.99',HRA:181,BB:30,SO:50,PCL:'4.00',O:95},'Impalas':{AB:182,H:27,C:48,CP:23,AVG:'.211',IP:'33.34',HRA:173,BB:39,SO:53,PCL:'3.24',O:99},'Llamas':{AB:163,H:23,C:35,CP:17,AVG:'.178',IP:'30.66',HRA:194,BB:69,SO:64,PCL:'3.65',O:91}};
 function table(headers,rows){return '<table><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(v=>'<td>'+v+'</td>').join('')+'</tr>').join('')+'</tbody></table>'}

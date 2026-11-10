@@ -142,11 +142,20 @@ async function loadPrivateData(){
   showError('Error al cargar el panel: '+(e?.message||String(e)));
  }
 }
-$auth('loginBtn').addEventListener('click',async()=>{
- showError(''); if(!sb){if(!window.supabase || SUPABASE_URL.startsWith('PEGA_') || SUPABASE_ANON_KEY.startsWith('PEGA_')){showError('Primero configura Supabase siguiendo INICIO_RAPIDO.txt.');return;} sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);}
- const {error}=await sb.auth.signInWithPassword({email:$auth('email').value,password:$auth('password').value});
- if(error){showError('No se pudo iniciar sesión. Revisa correo y contraseña.');return;} await loadPrivateData();
-});
+async function handleLogin(){
+ const btn=$auth('loginBtn');btn.disabled=true;btn.textContent='Conectando…';
+ showError('Conectando con Supabase…');
+ try{
+  if(!window.supabase){throw new Error('No cargó la librería de Supabase. Recarga la página (Ctrl+F5).');}
+  if(!sb)sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+  const {error}=await sb.auth.signInWithPassword({email:$auth('email').value,password:$auth('password').value});
+  if(error)throw error;
+  showError('Sesión validada. Cargando panel…');
+  await loadPrivateData();
+ }catch(e){console.error('Login privado:',e);showError('Error: '+(e?.message||String(e)));}
+ finally{btn.disabled=false;btn.textContent='Iniciar sesión';}
+}
+$auth('loginBtn').onclick=handleLogin;
 $auth('logoutBtn').addEventListener('click',async()=>{if(sb) await sb.auth.signOut();location.reload();});
 startSession();
 function initPanel(D){

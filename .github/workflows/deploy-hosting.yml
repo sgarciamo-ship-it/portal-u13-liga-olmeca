@@ -1,0 +1,37 @@
+name: Deploy Portal U13 Hosting
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: portal-u13-hosting
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validar archivos y proyecto
+        run: |
+          test -f index.html
+          test -f calendario.html
+          test -f firebase.json
+          if grep -nE '^(<<<<<<< |>>>>>>> )' ./*.html; then
+            echo "Conflictos de Git pendientes"; exit 1
+          fi
+          node -e "const c=require('./firebase.json'); if(c.hosting.public!=='.') process.exit(1)"
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTAL_U13 }}'
+          project_id: portal-u13-liga-olmeca
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Publicar exclusivamente Firebase Hosting U13
+        run: npx --yes firebase-tools@15.34.2 deploy --only hosting --project portal-u13-liga-olmeca
+      - name: Verificar portal
+        run: |
+          curl --fail --silent --show-error --retry 5 --retry-delay 5 https://portal-u13-liga-olmeca.web.app/ > /dev/null
+          curl --fail --silent --show-error --retry 5 --retry-delay 5 https://portal-u13-liga-olmeca.web.app/calendario.html > /dev/null

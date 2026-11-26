@@ -77,7 +77,15 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:#111315!important}
 const leaders={avg:{name:'Lucia Pacheco',value:'.500'},hr:{name:'Fernanda Bustos',value:'1'},rbi:{name:'Fernanda Bustos',value:'5'}};
 Object.entries(leaders).forEach(([k,v])=>{document.getElementById('home-'+k+'-name').textContent=v.name;document.getElementById('home-'+k+'-value').textContent=v.value});
 </script><script>
-const upcoming=[["07","SÁB","08:00","Antílopes","Impalas"],["07","SÁB","10:00","Llamas","Gacelas"],["08","DOM","08:00","Gacelas","Llamas"],["08","DOM","10:00","Impalas","Antílopes"]];
 const teamLogo={"Antílopes":"assets/Antilopes.png","Gacelas":"assets/Gacelas.png","Llamas":"assets/Llamas.png","Impalas":"assets/Impalas.png"};
-document.getElementById("home-games").innerHTML=upcoming.map(g=>'<article class="home-match"><div class="home-date">'+g[0]+'<small>'+g[1]+'</small></div><div><div class="home-versus"><div class="home-team"><img src="'+teamLogo[g[3]]+'" alt=""><b>'+g[3]+'</b></div><span class="home-vs">VS</span><div class="home-team"><img src="'+teamLogo[g[4]]+'" alt=""><b>'+g[4]+'</b></div></div><div class="home-time">'+g[2]+' · CAMPO 4</div></div></article>').join("");
+const homeGames=document.getElementById("home-games");
+fetch("calendario.html",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Calendario no disponible");return r.text()}).then(html=>{
+const match=html.match(/const games=(\[[\s\S]*?\]);/);
+if(!match)throw Error("Rol no disponible");
+const games=JSON.parse(match[1]);
+const today=new Intl.DateTimeFormat("en-CA",{timeZone:"America/Mexico_City",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+const upcoming=games.filter(g=>g.date>=today).sort((a,b)=>(a.date+" "+a.time).localeCompare(b.date+" "+b.time)).slice(0,4);
+if(!upcoming.length){homeGames.textContent="No hay próximos encuentros programados.";return;}
+homeGames.innerHTML=upcoming.map(g=>'<article class="home-match"><div class="home-date">'+g.date.slice(8,10)+'<small>'+g.day.slice(0,3).toUpperCase()+'</small></div><div><div class="home-versus"><div class="home-team"><img src="'+teamLogo[g.home]+'" alt=""><b>'+g.home+'</b></div><span class="home-vs">VS</span><div class="home-team"><img src="'+teamLogo[g.away]+'" alt=""><b>'+g.away+'</b></div></div><div class="home-time">'+g.time+' · CAMPO 4</div></div></article>').join("");
+}).catch(()=>{homeGames.textContent="Consulta el calendario completo para conocer los próximos juegos."});
 </script></body></html>
